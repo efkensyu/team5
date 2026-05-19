@@ -1,5 +1,5 @@
 package com.example.demo.team5.controller;
 
-public class SampleController {
+public class Team5Controller {
 
 }
