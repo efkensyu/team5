@@ -1,0 +1,50 @@
+/* 全体の設定（これまでの画面と統一） */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0d1b2a; /* 深みのあるダークブルー */
+    color: #e0e1dd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* メインのコンテナ（2つのボタンを横に並べる枠） */
+.button-container {
+    display: flex;
+    flex-direction: row; /* 横並びにする */
+    gap: 20px;           /* ボタンの間の隙間を20pxに設定 */
+    justify-content: center;
+    align-items: center;
+}
+
+/* 共通のボタン基本デザイン */
+input[type="submit"] {
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+}
+
+/* 「スタート！」ボタン（右側：進むボタンなので明るく目立たせる） */
+.start {
+    background-color: #1b4965;
+    border: 2px solid #4cc9f0; /* 鮮やかな水色の枠線 */
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.4); /* スタートは少し強めに光らせる */
+}
+
+/* 「戻る」ボタン（左側：戻るボタンなので少し落ち着いたトーンに） */
+.back {
+    background-color: #111e2e; /* 背景を少し暗めに */
+    border: 2px solid #415a77; /* 枠線も落ち着いた青に */
+    opacity: 0.8;
+}
