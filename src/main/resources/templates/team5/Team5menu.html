@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.ofg">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-テスト用ファイル
 </body>
+<form method="post" th:action="@{/Team5/typi}">
+		<br>
+		<input type="submit" name= "next" value="タイピングする" />
+	</form>	
 </html>

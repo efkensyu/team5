@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.ofg">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -7,9 +7,9 @@
 <body>
 	
 	<h1>Typig555!</h1>
-	<form method="post" th:action="@{/menu}">
+	<form method="post" th:action="@{/Team5/menu}">
 		<br>
-		<input type="submit" value="メニューへ" />
+		<input type="submit" name= "next" value="メニューへ" />
 	</form>	
 </body>
 </html>
