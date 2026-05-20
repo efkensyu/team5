@@ -1,5 +1,8 @@
 package com.example.demo.team5.service;
 
-public class Team5TypeingService {
+import org.springframework.stereotype.Service;
 
+@Service
+public class Team5TypeingService {
+	
 }
