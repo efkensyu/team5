@@ -1,5 +1,5 @@
 package com.example.demo.team5.service;
 
-public class SampleService {
+public class Team5Service {
 
 }
