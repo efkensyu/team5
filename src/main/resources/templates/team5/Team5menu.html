@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.ofg">
+<link rel = "stylesheet" th:href="@{/menu.css}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-</body>
-<h2></h2>
+
+<h2>メニュー</h2>
 <form method="post" th:action="@{/Team5/typi}">
+	
 		<br>
+		
 		<input type="submit" name= "next" value="タイピングする" />
+		<input type="submit" name= "result" value="ランキングを見る" />
 	</form>	
+</body>
 </html>
