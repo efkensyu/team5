@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+textarea{
+	display: block;
+	margin:0 auto;
+	resize:none;
+	width:80%;
+}
+
+p.sampleBody{
+	border : solid;
+	margin:0 auto;
+	width:80%;
+}
