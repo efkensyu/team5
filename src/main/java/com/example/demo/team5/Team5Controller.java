@@ -68,8 +68,15 @@ public static Instant start,end;
 			System.out.println(inputText);
 			model.addAttribute("inputText",inputText);
 			return "team5/Team5result";
-		
 		}
+		
+//		@PostMapping(value ="/Team5/result",params="next")		
+//		public String send7(@ModelAttribute Team5Entity team5Entity,Model model) {
+//			model.addAttribute("inputEntity",team5Entity);
+//			return "team5/Team5result";
+//		}
+		
+		
 		//タイピング結果画面からメニュー画面へ
 		@PostMapping(value ="/Team5/result1",params="next")		
 		public String send4() {
