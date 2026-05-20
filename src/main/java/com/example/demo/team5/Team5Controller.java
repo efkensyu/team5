@@ -1,14 +1,17 @@
 package com.example.demo.team5;
 
+import java.time.Instant;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller	
 public class Team5Controller {
-public static double start=0,end=0;
+public static Instant start,end;
 	
 
 //ログイン画面
@@ -47,6 +50,7 @@ public static double start=0,end=0;
 		//タイピング画面からタイピング実施画面へ
 		@PostMapping(value ="/Team5/uchikomi",params="clear")		
 		public String send3()throws Throwable {
+			//start = Team5TypeingService.getLocalTime();
 			return "team5/Team5uchikomi";
 		}
 		
@@ -60,19 +64,17 @@ public static double start=0,end=0;
 		//タイピング実施画面から結果画面へ
 		//計測終了
 		@PostMapping(value ="/Team5/result",params="next")		
-		public String send5() {
-			System.out.println("susum" + start + end);
-			
+		public String send5(@RequestParam String inputText,Model model) {
+			System.out.println(inputText);
+			model.addAttribute("inputText",inputText);
 			return "team5/Team5result";
 		
 		}
 		//タイピング結果画面からメニュー画面へ
 		@PostMapping(value ="/Team5/result1",params="next")		
 		public String send4() {
-			
-			return "team5/Team5menu";
-				
-			
+	
+			return "team5/Team5menu";		
 			}
 
 

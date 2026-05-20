@@ -13,7 +13,6 @@ public class Team5TypingCalcService {
 	return per;
 	
 }
-
 	
 	public double calcMinutes(double time, String correct) {
 		perMinutes = correct.length() / (time/60);
