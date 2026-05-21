@@ -67,6 +67,7 @@ public Team5TypingService typing = new Team5TypingService();
 		@PostMapping(value ="/Team5/uchikomi",params="clear")		
 		public String send3()throws Throwable {
 			start = typing.getLocalTime();
+			
 				return "team5/Team5uchikomi";
 			//start = Team5TypeingService.getLocalTime();
 		}
