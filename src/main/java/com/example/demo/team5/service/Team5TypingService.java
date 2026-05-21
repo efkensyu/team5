@@ -45,12 +45,8 @@ public class Team5TypingService extends Team5TypingCalcService{
 	//現在時刻を取得し、差を計算。ミリ秒から秒に変換するメソッド
 	public double calcTime(Instant start, Instant end) {
 		Duration duration = Duration.between(start, end);
-		double time = duration.toMillis() / 1000;
+		System.out.println(duration);
+		double time = Math.round(duration.toMillis()/100.0)/10.0;
 		return time;
 	}
-	
-	
-	
-	
-	
 }
