@@ -7,14 +7,25 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Team5TypingService extends Team5TypingCalcService{
+	private int correctCount=0,wrongCount=0,totalCount=0;
+	private Instant start=null,end=null;
+	
+	
+	
+	//コンストラクタ呼び出し時に、
+	//入力文字列とサンプル文字列を入力させる。
+	Team5TypingService(String inputText,String sampleText){
+		checkArticle(inputText,sampleText);
+	}
 	
 	//正誤誤判定
-	public int[] checkArticle(String inputText,String sampleText) {
+	public void checkArticle(String inputText,String sampleText) {
+		//x[0]は間違え数
+		//x[1]は合計文字数
 		int[] x = {0,0};
 		int il = inputText.length();
 		int sl = sampleText.length();
 		x[1] = sl;
-		int wrongCount = 0;
 		if(inputText.equals(sampleText)) {
 			x[0] = il;
 		}else {
@@ -26,24 +37,36 @@ public class Team5TypingService extends Team5TypingCalcService{
 			}
 			
 			for(int i = 0;i < loopcap;i++) {
-				if(inputText.charAt(i) != inputText.charAt(i)) {
+				if(sampleText.charAt(i) != inputText.charAt(i)) {
 					wrongCount++;
 				}
 			}
 			wrongCount += Math.abs(il - sl);
-			x[0] = wrongCount;
 		}
-		return x;
+		correctCount = sl - wrongCount;
+		totalCount = sl;
 	}
 	
-	//時間管理
-	public Instant getLocalTime() {
-		return Instant.now();
+	//タイマーセット、再度呼び出すと、タイマーストップ
+	public void takeTimer() {
+		if(start != null || end != null) {
+			start = null;
+			end = null;
+		}
+		if(start == null) {
+			start = Instant.now();
+			return;
+		}else {
+			end = Instant.now();
+			return;
+		}
+		
+
 	}
 	
 	
 	//現在時刻を取得し、差を計算。ミリ秒から秒に変換するメソッド
-	public double calcTime(Instant start, Instant end) {
+	public double calcTime() {
 		Duration duration = Duration.between(start, end);
 		System.out.println(duration);
 		double time = Math.round(duration.toMillis()/100.0)/10.0;
