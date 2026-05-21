@@ -54,7 +54,7 @@ public Team5TypingService typing = new Team5TypingService();
 		
 		//タイピング画面からメニュー画面へ
 		@PostMapping(value ="/Team5/menu",params="return")	
-		public String send02() {
+		public String send02() throws Throwable{
 					
 				return "team5/Team5menu";	
 		}
@@ -74,18 +74,20 @@ public Team5TypingService typing = new Team5TypingService();
 		
 		//タイピング実施画面からタイピング画面へ
 		@PostMapping(value ="/Team5/typi",params="return")	
-		public String send03(Model model) {
+		public String send03(Model model)throws Throwable {
 			System.out.println("戻る");
+			//throw new Exception();
 			return "team5/Team5typing";	
 		}
 		
 		//タイピング実施画面から結果画面へ
 		//計測終了
 		@PostMapping(value ="/Team5/result",params="next")		
-		public String send5(@RequestParam String inputText,Model model) {
+		public String send5(@RequestParam String inputText,Model model) throws Throwable {
 			end = typing.getLocalTime();
 			
 			model.addAttribute("inputText",inputText);
+			//throw new Exception();
 			return "team5/Team5result";
 		}
 //タイピング実施画面 to 結果画面
@@ -99,7 +101,7 @@ public Team5TypingService typing = new Team5TypingService();
 		
 		//タイピング結果画面からメニュー画面へ
 		@PostMapping(value ="/Team5/result1",params="next")		
-		public String send4() {
+		public String send4() throws Throwable{
 	
 			return "team5/Team5menu";		
 			}
