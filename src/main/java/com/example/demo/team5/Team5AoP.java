@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 public class Team5AoP {
-	@After("annotation(* com.example.demo.team5.Team5Controller.PostMapping(..))")
+	@After("@annotation(org.springframework.web.bind.annotation.PostMapping)")
 	public void AfterLog(JoinPoint jp) {
 		//System.out.println("[After]PotMappingメソッド開始:" + jp.getSignature());
 		//System.out.println("送ったデータ:" + Arrays.toString(jp.getArgs()));
@@ -19,7 +19,7 @@ public class Team5AoP {
 		log.warn("Postメソッドのwarningログ");
 		log.error("Postメソッドのwarningログ");
 	}
-	@After("annotation(* com.example.demo.team5.Team5Controller.GetMapping(..))")
+	@After("@annotation(org.springframework.web.bind.annotation.GetMapping)")
 	public void AfterLog1(JoinPoint jp) {
 		//System.out.println("[After]PotMappingメソッド開始:" + jp.getSignature());
 		//System.out.println("送ったデータ:" + Arrays.toString(jp.getArgs()));
