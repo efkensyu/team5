@@ -52,9 +52,9 @@ public Team5TypingService typing;
 		//タイピング画面からタイピング実施画面へ
 		@PostMapping(value ="/Team5/uchikomi",params="clear")		
 		public String send3()throws Throwable {
-			start = typing.getLocalTime();
+			//start = typing.getLocalTime();
+				return "team5/Team5uchikomi";
 			//start = Team5TypeingService.getLocalTime();
-			return "team5/Team5uchikomi";
 		}
 		
 		//タイピング実施画面からタイピング画面へ
@@ -68,7 +68,7 @@ public Team5TypingService typing;
 		//計測終了
 		@PostMapping(value ="/Team5/result",params="next")		
 		public String send5(@RequestParam String inputText,Model model) {
-			end = typing.getLocalTime();
+			//end = typing.getLocalTime();
 			model.addAttribute("inputText",inputText);
 			return "team5/Team5result";
 		}
