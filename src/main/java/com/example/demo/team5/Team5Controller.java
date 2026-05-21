@@ -38,6 +38,20 @@ public Team5TypingService typing = new Team5TypingService();
 			System.out.println("menu to typing");
 			return "team5/Team5typing";	
 		}
+		//メニュー画面からランキング画面へ
+				@PostMapping(value ="/Team5/ranking",params="result")		
+				public String sendrank(Model model) throws Throwable{
+					System.out.println("menu to rankings");
+					return "team5/Team5ranking";	
+				}
+				//ランキング画面からメニュー画面へ
+				@PostMapping(value ="/Team5/rankingback",params="return")		
+				public String sendmenu(Model model) throws Throwable{
+					System.out.println("ranking to menu");
+					return "team5/Team5menu";	
+				}
+				
+		
 		//タイピング画面からメニュー画面へ
 		@PostMapping(value ="/Team5/menu",params="return")	
 		public String send02() {
