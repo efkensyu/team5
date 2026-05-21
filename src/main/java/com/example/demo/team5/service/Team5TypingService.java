@@ -10,7 +10,9 @@ public class Team5TypingService extends Team5TypingCalcService{
 	private int correctCount=0,wrongCount=0,totalCount=0;
 	private Instant start=null,end=null;
 	
-	
+	public Team5TypingService() {
+		
+	}
 	
 	//コンストラクタ呼び出し時に、
 	//入力文字列とサンプル文字列を入力させる。
@@ -60,8 +62,10 @@ public class Team5TypingService extends Team5TypingCalcService{
 			end = Instant.now();
 			return;
 		}
-		
-
+	}
+	
+	public Instant getLocalTime() {
+		return Instant.now();
 	}
 	
 	
