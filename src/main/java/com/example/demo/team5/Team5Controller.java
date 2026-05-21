@@ -8,16 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.team5.service.Team5TypingService;
+
 
 @Controller	
 public class Team5Controller {
 public static Instant start,end;
-	
+public Team5TypingService typing;
 
 //ログイン画面
 	//ログイン画面へ
 		@GetMapping("/Team5/login")		
-		public String index () throws Throwable{		
+		public String index () throws Throwable{	
 			System.out.println("確認");
 			
 			return "team5/Team5login";	
@@ -50,6 +52,7 @@ public static Instant start,end;
 		//タイピング画面からタイピング実施画面へ
 		@PostMapping(value ="/Team5/uchikomi",params="clear")		
 		public String send3()throws Throwable {
+			start = typing.getLocalTime();
 			//start = Team5TypeingService.getLocalTime();
 			return "team5/Team5uchikomi";
 		}
@@ -65,11 +68,12 @@ public static Instant start,end;
 		//計測終了
 		@PostMapping(value ="/Team5/result",params="next")		
 		public String send5(@RequestParam String inputText,Model model) {
-			System.out.println(inputText);
+			end = typing.getLocalTime();
 			model.addAttribute("inputText",inputText);
 			return "team5/Team5result";
 		}
-		
+//タイピング実施画面 to 結果画面
+//
 //		@PostMapping(value ="/Team5/result",params="next")		
 //		public String send7(@ModelAttribute Team5Entity team5Entity,Model model) {
 //			model.addAttribute("inputEntity",team5Entity);

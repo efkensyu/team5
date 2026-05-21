@@ -3,13 +3,13 @@ package com.example.demo.team5.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Team5TypingCalcService {
+public class Team5TypingCalcService extends Team5TypingService{
 	//入力された文字数をdouble型にして正解率（per）を出す。
 	private double per;
 	private double perMinutes;
 	
 	public double calcPer(String correct, String total) {
-	per= correct.length() / total.length();
+	per = correct.length() / total.length();
 	return per;
 	
 }

@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class Team5Dto {
-
+	private String inputText;
 }
