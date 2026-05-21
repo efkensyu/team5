@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/*@charset "UTF-8";
 
 textarea{
 	display: block;
@@ -11,4 +11,112 @@ p.sampleBody{
 	border : solid;
 	margin:0 auto;
 	width:80%;
+}*/
+
+@charset "UTF-8";
+
+/* 画面全体の背景 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0d1b2a; /* 深みのあるダークブルー */
+    color: #e0e1dd;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 中央配置のベース（元のJavaの動きを維持するための設定） */
+.positionCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* お題を囲うゲームコンテナ */
+.game-container {
+    width: 80%;
+    max-width: 800px;
+    background-color: rgba(27, 73, 101, 0.2); /* 半透明の紺色 */
+    border: 1px solid #1b4965;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
+}
+
+/* お題のテキスト（黒枠を消し、ネオンシアン色に） */
+.question-text {
+    font-size: 1.3rem;
+    color: #4cc9f0 !important; /* 鮮やかな水色 */
+    line-height: 1.8;
+    background: rgba(0, 0, 0, 0.3) !important;
+    padding: 20px !important;
+    border: none !important;
+    border-left: 5px solid #4cc9f0 !important; /* 左側にアクセントライン */
+    border-radius: 8px;
+    margin: 0 auto !important;
+    width: 90% !important;
+    text-align: left;
+    box-sizing: border-box;
+}
+
+/* 入力エリア（元の textarea スタイルを完全上書き） */
+textarea {
+    display: block;
+    margin: 0 auto;
+    resize: none;
+    
+    /* 💡 縮まないように％ではなく、上の枠と全く同じ「固定の最大幅」を指定します */
+    width: 1000px !important;  /* 上の枠（max-width: 800px）と完全に一致 */
+    max-width: 80% !important; /* 画面が狭いときは画面の80%に自動縮小 */
+    
+    height: 150px; /* 💡 高すぎず低すぎない、タイピングしやすい程よい高さに調整 */
+    
+    background-color: #0d1b2a;
+    color: #ffffff;
+    border: 2px solid #1b4965;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.2rem;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+
+/* ボタンの共通デザイン */
+input[type="submit"] {
+    display: block;
+    margin: 5px auto 0 auto;
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    width: 180px;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* 「完了！」ボタン */
+.btn-complete {
+    background-color: #1b4965;
+    color: #ffffff;
+    border: 2px solid #4cc9f0;
+    box-shadow: 0 0 10px rgba(76, 201, 240, 0.3);
+}
+
+/* 「戻る」ボタン */
+.btn-back {
+    background-color: transparent;
+    color: #415a77;
+    border: 2px solid #415a77;
 }

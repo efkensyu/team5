@@ -6,15 +6,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" th:action="@{/Team5/uchikomi}">
-					<br>
-					<input type="submit" name= clear value="スタート！" class="start" />
-	</form>
+	<div class="button-container">
 	
 	<form method="post" th:action="@{/Team5/menu}">
 			<br>
 			<input type="submit" name= return value="戻る" class="back" />
 	</form>	
-			
+	
+	<form method="post" th:action="@{/Team5/uchikomi}">
+						<br>
+						<input type="submit" name= clear value="スタート！" class="start" />
+		</form>
+	</div>
 </body>
 </html>
