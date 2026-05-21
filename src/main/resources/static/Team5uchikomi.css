@@ -1,17 +1,3 @@
-/*@charset "UTF-8";
-
-textarea{
-	display: block;
-	margin:0 auto;
-	resize:none;
-	width:80%;
-}
-
-p.sampleBody{
-	border : solid;
-	margin:0 auto;
-	width:80%;
-}*/
 
 @charset "UTF-8";
 
@@ -20,9 +6,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #0d1b2a; /* 深みのあるダークブルー */
+    background-color: #0d1b2a; 
     color: #e0e1dd;
     min-height: 100vh;
+	
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -43,7 +30,7 @@ body {
 .game-container {
     width: 80%;
     max-width: 800px;
-    background-color: rgba(27, 73, 101, 0.2); /* 半透明の紺色 */
+    background-color: rgba(27, 73, 101, 0.2); 
     border: 1px solid #1b4965;
     border-radius: 15px;
     padding: 20px;
@@ -51,15 +38,15 @@ body {
     margin-bottom: 5px;
 }
 
-/* お題のテキスト（黒枠を消し、ネオンシアン色に） */
+/* お題のテキスト */
 .question-text {
     font-size: 1.3rem;
-    color: #4cc9f0 !important; /* 鮮やかな水色 */
+    color: #4cc9f0 !important; 
     line-height: 1.8;
     background: rgba(0, 0, 0, 0.3) !important;
     padding: 20px !important;
     border: none !important;
-    border-left: 5px solid #4cc9f0 !important; /* 左側にアクセントライン */
+    border-left: 5px solid #4cc9f0 !important; 
     border-radius: 8px;
     margin: 0 auto !important;
     width: 90% !important;
@@ -67,17 +54,17 @@ body {
     box-sizing: border-box;
 }
 
-/* 入力エリア（元の textarea スタイルを完全上書き） */
+/* 入力エリア */
 textarea {
     display: block;
     margin: 0 auto;
     resize: none;
     
-    /* 💡 縮まないように％ではなく、上の枠と全く同じ「固定の最大幅」を指定します */
-    width: 1000px !important;  /* 上の枠（max-width: 800px）と完全に一致 */
+    /*  */
+    width: 1000px !important; 
     max-width: 80% !important; /* 画面が狭いときは画面の80%に自動縮小 */
     
-    height: 150px; /* 💡 高すぎず低すぎない、タイピングしやすい程よい高さに調整 */
+    height: 150px; 
     
     background-color: #0d1b2a;
     color: #ffffff;
@@ -91,7 +78,7 @@ textarea {
 }
 
 
-/* ボタンの共通デザイン */
+/* ボタン */
 input[type="submit"] {
     display: block;
     margin: 5px auto 0 auto;

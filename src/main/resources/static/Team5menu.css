@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #0d1b2a; /* 深みのあるダークブルー */
+    background-color: #0d1b2a; 
     color: #e0e1dd;
     display: flex;
     flex-direction: column;
@@ -15,22 +15,22 @@ body {
 /* タイトル（メニュー）のデザイン */
 h2 {
     font-size: 2.5rem;
-    color: #4cc9f0; /* 鮮やかな水色 */
+    color: #4cc9f0; 
     margin-bottom: 40px;
     letter-spacing: 3px;
     border-bottom: 2px solid #1b4965;
     padding-bottom: 10px;
 }
 
-/* フォームを縦並びにして、ボタンの間に10pxの隙間をあける */
+
 form {
     display: flex;
-    flex-direction: column; /* 縦並びにする設定 */
-    gap: 10px;              /* 要素同士の間隔を10pxにする設定 */
-    align-items: center;    /* 中央揃え */
+    flex-direction: column; 
+    gap: 10px;              
+    align-items: center;   
 }
 
-/* メニューボタンのデザイン */
+/* メニューボタン */
 input[type="submit"] {
     background-color: #1b4965;
     color: #ffffff;
@@ -42,6 +42,6 @@ input[type="submit"] {
     letter-spacing: 1px;
     cursor: pointer;
     box-shadow: 0 0 15px rgba(76, 201, 240, 0.3);
-    width: 250px;          /* ボタンの横幅を統一するとより綺麗に見えます */
+    width: 250px;          
     text-align: center;
 }

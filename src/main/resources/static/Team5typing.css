@@ -1,0 +1,50 @@
+/* 全体の設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #0d1b2a; /* 深みのあるダークブルー */
+    color: #e0e1dd;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* 2つのボタンを横に並べる */
+.button-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;           
+    justify-content: center;
+    align-items: center;
+}
+
+/* 共通のボタン*/
+input[type="submit"] {
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    width: 180px;
+    text-align: center;
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.2);
+}
+
+/* 「スタート！」ボタン */
+.start {
+    background-color: #1b4965;
+    border: 2px solid #4cc9f0; 
+    box-shadow: 0 0 15px rgba(76, 201, 240, 0.4); 
+}
+
+/* 「戻る」ボタン（ */
+.back {
+    background-color: #111e2e; 
+    border: 2px solid #415a77; 
+    opacity: 0.8;
+}
