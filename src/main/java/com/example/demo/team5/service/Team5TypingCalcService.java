@@ -3,23 +3,26 @@ package com.example.demo.team5.service;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Team5TypingCalcService extends Team5TypingService{
-	//入力された文字数をdouble型にして正解率（per）を出す。
-	private double per;
-	private double perMinutes;
+public class Team5TypingCalcService{
 	
-	public double calcPer(String correct, String total) {
-	per = correct.length() / total.length();
+	
+	
+	//正解確率を出力する。
+	public double calcPer(String inputText, String totalText) {
+	double per = inputText.length() / totalText.length();
 	return per;
 	
 }
-	
+	//分間打文字数を出力する。
 	public double calcMinutes(double time, String correct) {
-		perMinutes = correct.length() / (time/60);
+		//timeが0の場合、エラー値として-1を返す。
 		if(time == 0) {
 			return -1;
 		}else {
+			double perMinutes = correct.length() / (time/60);	
 		return perMinutes;
 	}
+	
+		
 }
 }
