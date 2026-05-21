@@ -10,16 +10,18 @@ public class Team5TypingService extends Team5TypingCalcService{
 	private int correctCount=0,wrongCount=0,totalCount=0;
 	private Instant start=null,end=null;
 	
-	public Team5TypingService() {
-		
+	public double getPer() {
+		System.out.println(correctCount);
+		System.out.println(totalCount);
+		return calcPer(correctCount,totalCount) ;
 	}
 	
 	//コンストラクタ呼び出し時に、
 	//入力文字列とサンプル文字列を入力させる。
-	Team5TypingService(String inputText,String sampleText){
-		checkArticle(inputText,sampleText);
+	//checkArticleを動かすために
+	public void Article(String inputText) {
+		//checkArticle(String inputText,String sampleText);
 	}
-	
 	//正誤誤判定
 	public void checkArticle(String inputText,String sampleText) {
 		//x[0]は間違え数
@@ -32,7 +34,7 @@ public class Team5TypingService extends Team5TypingCalcService{
 			x[0] = il;
 		}else {
 			int loopcap;
-			if(il > sl) {
+			if(il < sl) {
 				loopcap = il;
 			}else {
 				loopcap = sl;

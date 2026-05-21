@@ -19,6 +19,7 @@ public class Team5AoP {
 		Object result;
 		try {result = jp.proceed();
 		}catch(Exception e) {
+			System.out.println(e);
 			log.error("Postメソッドのerrorログ");
 			return "team5/Team5error";	
 		}

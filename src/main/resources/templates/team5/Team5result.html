@@ -5,13 +5,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form method="post" th:action="@{/Team5/result1}">
 	<h1>～結果発表～</h1>
 	
-	<h2>正解数：</h2>
+	<h2>正解数： </h2>
 	<h2>失敗数：</h2>
-	<h2>正解率：</h2>
+	<h2 th:text="正解率： + ${Per}"></h2>
 	<h2>分間打鍵数：</h2>
-<form method="post" th:action="@{/Team5/result1}">
+
 	<p th:text="${inputText}"></p>
 	<input type="submit" name ="next" value="メニュー画面へもどる" />
 </form>
