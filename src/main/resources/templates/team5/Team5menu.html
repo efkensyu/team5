@@ -13,7 +13,13 @@
 		<br>
 		
 		<input type="submit" name= "next" value="タイピングする" />
-		<input type="submit" name= "result" value="ランキングを見る" />
-	</form>	
+		
+	</form>
+	<form method="post" th:action="@{/Team5/ranking}">
+		
+			<br>
+			
+			<input type="submit" name= "result" value="ランキングを見る" />
+		</form>		
 </body>
 </html>
