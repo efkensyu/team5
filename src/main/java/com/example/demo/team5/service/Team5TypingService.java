@@ -6,7 +6,7 @@ import java.time.Instant;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Team5TypingService {
+public class Team5TypingService extends Team5TypingCalcService{
 	
 	public Instant getLocalTime() {
 		return Instant.now();
