@@ -1,3 +1,4 @@
+
 package com.example.demo.team5.entity;
 
 import jakarta.persistence.Entity;
