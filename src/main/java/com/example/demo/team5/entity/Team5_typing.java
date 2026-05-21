@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 @Table(name="Team5_typing_tbl")
 @Data
-public class Team5Typing {
+public class Team5_typing {
 	@Id
 	private Integer TypingId;
 	private String TypingBody;
