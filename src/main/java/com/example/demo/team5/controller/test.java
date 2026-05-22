@@ -1,5 +1,6 @@
 package com.example.demo.team5.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -7,7 +8,8 @@ import com.example.demo.team5.service.Team5Service;
 
 @Controller
 public class test {
-	private final Team5Service team5Service = new Team5Service();
+	@Autowired
+	private Team5Service team5Service;
 	
 	
 	@GetMapping("Team5/flowRear/test")		

@@ -15,6 +15,4 @@ public class Team5_typing {
 	@Column(name = "TYPING_ID")
 	private Integer typingId;
 	private String typingBody;
-	
-
 }
