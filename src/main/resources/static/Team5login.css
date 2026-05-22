@@ -1,8 +1,8 @@
-/* 全体のリセットと背景設定 */
+/* 背景 */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: Arial;
     background-color: #0d1b2a;
     display: flex;
     flex-direction: column;
