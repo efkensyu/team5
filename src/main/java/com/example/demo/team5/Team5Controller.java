@@ -2,19 +2,24 @@ package com.example.demo.team5;
 
 import java.time.Instant;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.team5.service.Team5Service;
 import com.example.demo.team5.service.Team5TypingService;
 
 
 @Controller	
 public class Team5Controller {
 public static Instant start,end;
+String sample;
 public Team5TypingService typing = new Team5TypingService();
+@Autowired
+private Team5Service typeServ;
 
 //ログイン画面
 	//ログイン画面へ
@@ -41,6 +46,8 @@ public Team5TypingService typing = new Team5TypingService();
 		//メニュー画面からランキング画面へ
 				@PostMapping(value ="/Team5/ranking",params="result")		
 				public String sendrank(Model model) throws Throwable{
+					//rankingへの値を渡す。
+					
 					System.out.println("menu to rankings");
 					return "team5/Team5ranking";	
 				}
@@ -65,7 +72,9 @@ public Team5TypingService typing = new Team5TypingService();
 	//セッション時間計測を開始させる。
 		//タイピング画面からタイピング実施画面へ
 		@PostMapping(value ="/Team5/uchikomi",params="clear")		
-		public String send3()throws Throwable {
+		public String send3(Model model)throws Throwable {
+			sample = typeServ.getTypingBody().get(0).getTypingBody();
+			model.addAttribute("reibun",sample);
 			start = typing.getLocalTime();
 			//typing.takeTimer();
 			System.out.println(start);
@@ -86,8 +95,11 @@ public Team5TypingService typing = new Team5TypingService();
 		@PostMapping(value ="/Team5/result",params="next")		
 		public String send5(@RequestParam String inputText,Model model) throws Throwable {
 			end = typing.getLocalTime();
+			
 			//sample文字列と入力された文字を入力
-			typing.checkArticle(inputText,"sample");
+			
+			typing.checkArticle(inputText,sample);
+			
 			//typing.getPer();
 			//%表示
 			//typing.takeTimer();
