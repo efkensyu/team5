@@ -96,6 +96,7 @@ public Team5TypingService typing = new Team5TypingService();
 			model.addAttribute("Per",PerSt);
 			model.addAttribute("Cor",typing.getCorrect());
 			model.addAttribute("Wor",typing.getWrong());
+			
 			model.addAttribute("Min",typing.getcalcM(start,end));
 			model.addAttribute("inputText",inputText);
 			//throw new Exception();
