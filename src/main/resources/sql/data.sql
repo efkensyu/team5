@@ -1,5 +1,3 @@
-INSERT INTO bumon_tbl VALUES('B01', '開発部');
-INSERT INTO bumon_tbl VALUES('B02', '技術部');
-INSERT INTO bumon_tbl VALUES('B03', '管理部');
-INSERT INTO bumon_tbl VALUES('B04', '総務部');
-INSERT INTO bumon_tbl VALUES('B05', '営業部');
+INSERT INTO Team5_TYPING_TBL VALUES(1, 'しらすの精霊');
+INSERT INTO Team5_TYPING_TBL VALUES(2, 'しらすの要請');
+INSERT INTO Team5_TYPING_TBL VALUES(5, 'しらすのすらす');
