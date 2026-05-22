@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.ofg">
-<link rel = "stylesheet" th:href="@{/typing.css}">
+<link rel = "stylesheet" th:href="@{/Team5ranking.css}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-	
-	<form method="post" th:action="@{/Team5/rankingback}">
+<body>	
 		
-		<h2>ランキング表示</h2>
-		
+		<table>
+			<caption>Ranking</caption>
+			<tr>
+				<td>1</td>
+				<td>ユーザー</td>
+				<td>　　/分</td>
+			</tr>
+			
+			<tr>
+				<td>2</td>
+				<td>ユーザー</td>
+				<td>　　/分</td>
+			</tr>			
+			
+			<tr>
+				<td>3</td>
+				<td>ユーザー</td>
+				<td>　　/分</td>
+			</tr>			
+		</table>
 			<br>
+	<form method="post" th:action="@{/Team5/rankingback}">
 			<input type="submit" name= return value="戻る"  />
 	</form>	
 			
