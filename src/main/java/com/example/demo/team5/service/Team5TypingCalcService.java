@@ -10,7 +10,12 @@ public class Team5TypingCalcService{
 	//正解確率を出力する。
 	//引数は（正解文字数,合計文字数)
 	public double calcPer(int correct, int total) {
-	double per = correct / total;
+	double doubleCor = (double)correct;
+	double doubleTol = (double)total;
+	double per = doubleCor / doubleTol;
+	//System.out.println(per);
+	//System.out.println(correct);
+	//System.out.println(total);
 	return per;
 	
 }

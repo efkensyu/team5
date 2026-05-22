@@ -66,8 +66,9 @@ public Team5TypingService typing = new Team5TypingService();
 		//タイピング画面からタイピング実施画面へ
 		@PostMapping(value ="/Team5/uchikomi",params="clear")		
 		public String send3()throws Throwable {
-			//start = typing.getLocalTime();
-			
+			start = typing.getLocalTime();
+			//typing.takeTimer();
+			System.out.println(start);
 				return "team5/Team5uchikomi";
 			//start = Team5TypeingService.getLocalTime();
 		}
@@ -84,16 +85,21 @@ public Team5TypingService typing = new Team5TypingService();
 		//計測終了
 		@PostMapping(value ="/Team5/result",params="next")		
 		public String send5(@RequestParam String inputText,Model model) throws Throwable {
-			//end = typing.getLocalTime();
-			
+			end = typing.getLocalTime();
+			//sample文字列と入力された文字を入力
 			typing.checkArticle(inputText,"sample");
-			typing.getPer();
-			model.addAttribute("Per",typing.getPer());
-			
-			
-			
+			//typing.getPer();
+			//%表示
+			//typing.takeTimer();
+			double Per = typing.getPer() * 100;
+			String PerSt = String.format("%2.1f%%",Per);
+			model.addAttribute("Per",PerSt);
+			model.addAttribute("Cor",typing.getCorrect());
+			model.addAttribute("Wor",typing.getWrong());
+			model.addAttribute("Min",typing.getcalcM(start,end));
 			model.addAttribute("inputText",inputText);
 			//throw new Exception();
+			
 			return "team5/Team5result";
 		}
 //タイピング実施画面 to 結果画面
