@@ -17,7 +17,8 @@ public class Team5Service {
 	Random random = new Random();
 	
 	public  List<Team5_typing> getTypingBody() {
-		int id = (random.nextInt(typing.findAll().size())+1);
+		Integer id = (random.nextInt(typing.findAll().size())+1);
+		System.out.println(id);
 		return typing.findByTypingId(id);
 	}
 	
