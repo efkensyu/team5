@@ -6,30 +6,56 @@ import java.time.Instant;
 import org.springframework.stereotype.Service;
 
 @Service
-public class Team5TypingService extends Team5TypingCalcService{
+public class Team5TypingService{
 	private int correctCount=0,wrongCount=0,totalCount=0;
 	private Instant start=null,end=null;
 	
-	public double getPer() {
-		//System.out.println(correctCount);
-		//System.out.println(totalCount);
-		return calcPer(correctCount,totalCount) ;
-	}
 	
-	//コンストラクタ呼び出し時に、
-	//入力文字列とサンプル文字列を入力させる。
-	//checkArticleを動かすために
-//	public void Article(String inputText) {
-//		//checkArticle(String inputText,String sampleText);
-//	}
-	//getの呼び出し
+	//get.正解数
 	public int getCorrect() {
 		return correctCount;
 	}
-	//getの呼び出し
+	//get.間違数
 		public int getWrong() {
 			return wrongCount;
 		}
+		
+	public double getPer() {
+			return calcPer(correctCount,totalCount) ;
+		}
+	
+	///分間打鍵数獲得関数
+	public double getcalcM(Instant start,Instant end) {
+		return calcMinutes(calcTime(start,end), correctCount);
+	}
+	
+	//以下計算部分
+	//分間打鍵数を計測する。
+	private double calcMinutes(double time, int correct) {
+		//timeが0の場合、エラー値として-1を返す。
+		if(time == 0) {
+			return -1;
+		}else {
+			double perMinutes = correct / (time/60);	
+		return perMinutes;
+	}
+	}
+	
+	//
+	private double calcPer(int correct, int total) {
+		double doubleCor = (double)correct;
+		double doubleTol = (double)total;
+		double per = doubleCor / doubleTol;
+		//System.out.println(per);
+		//System.out.println(correct);
+		//System.out.println(total);
+		return per;
+	}
+	
+	
+
+
+
 	//正誤誤判定
 	public void checkArticle(String inputText,String sampleText) {
 		//x[0]は間違え数
@@ -89,13 +115,4 @@ public class Team5TypingService extends Team5TypingCalcService{
 		double time = Math.round(duration.toMillis()/100.0)/10.0;
 		return time;
 	}
-	
-	///分間打鍵数
-		public double getcalcM(Instant start,Instant end) {
-			getLocalTime();
-			takeTimer();
-			System.out.println(start);
-			System.out.println(end);
-			return calcMinutes(calcTime(start,end), correctCount);
-		}
 }

@@ -11,18 +11,26 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class Team5AccountService {
-	
+	    private final Team5AccountRepository repository;
 
-
-	    private final Team5AccountRepository team5AccountRepository;
-
-	    public void create(String LoginId, String PassWord) {
-	    	Team5Account team5Account = new Team5Account();
-	    	 team5Account.setLoginId(LoginId);
-
-	       // return "success!!";
-	    	 team5Account.setPassWord(PassWord);
-	    	 team5AccountRepository.save(team5Account);
-	    	 System.out.println(team5AccountRepository.findAll());
+	    public void create(Team5Account account) {
+	    	 repository.save(account);
+	    }
+	    
+	    public boolean hasLoginId(String inputId) {
+	    	if(repository.findByUserId(inputId)) {
+	    		return true;
+	    	}else {
+	    		return false;
+	    	}
+	    }
+	    
+	    public boolean canLogin(String Id,String PassWord) {
+	    	String UserPass = repository.findByPassWord(Id).getPassWord();
+	    	if(repository.findByUserId(Id) && UserPass.equals(PassWord)){
+	    		return true;
+	    	}else {
+	    	return false;
+	    }
 	    }
 	}
