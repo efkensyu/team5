@@ -5,15 +5,15 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${team5Validation}">
+	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${account}">
 	        <h4>ユーザーネーム</h4>
-	        <input type="text" th:field="*{username}" />
-	        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;"></p>
+	        <input type="text" th:field="*{userId}" />
+	        <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color: red;"></p>
 	        
 	        <br>
 	        <h4>パスワード</h4>
-	        <input type="text" th:field="*{password}" />
-	        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></p>
+	        <input type="text" th:field="*{passWord}" />
+	        <p th:if="${#fields.hasErrors('passWord')}" th:errors="*{passWord}" style="color: red;"></p>
 	        
 	        <br><br>
 	        <input type="submit" value="登録" />

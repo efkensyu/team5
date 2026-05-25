@@ -18,7 +18,7 @@ public class Team5AccountService {
 	    }
 	    
 	    public boolean hasLoginId(String inputId) {
-	    	if(repository.findByUserId(inputId)) {
+	    	if(repository.existsByUserId(inputId)) {
 	    		return true;
 	    	}else {
 	    		return false;
@@ -27,7 +27,7 @@ public class Team5AccountService {
 	    
 	    public boolean canLogin(String Id,String PassWord) {
 	    	String UserPass = repository.findByPassWord(Id).getPassWord();
-	    	if(repository.findByUserId(Id) && UserPass.equals(PassWord)){
+	    	if(repository.existsByUserId(Id) && UserPass.equals(PassWord)){
 	    		return true;
 	    	}else {
 	    	return false;
