@@ -2,27 +2,27 @@ package com.example.demo.team5.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.team5.entity.Team5Acount;
-import com.example.demo.team5.repository.Team5AcountRepository;
+import com.example.demo.team5.entity.Team5Account;
+import com.example.demo.team5.repository.Team5AccountRepository;
 
 import lombok.RequiredArgsConstructor;
 
 
 @Service
 @RequiredArgsConstructor
-public class Team5AcountService {
+public class Team5AccountService {
 	
 
 
-	    private final Team5AcountRepository team5AcountRepository;
+	    private final Team5AccountRepository team5AccountRepository;
 
 	    public void create(String LoginId, String PassWord) {
-	    	Team5Acount team5Acount = new Team5Acount();
-	    	 team5Acount.setLoginId(LoginId);
+	    	Team5Account team5Account = new Team5Account();
+	    	 team5Account.setLoginId(LoginId);
 
 	       // return "success!!";
-	    	 team5Acount.setPassWord(PassWord);
-	    	 team5AcountRepository.save(team5Acount);
-	    	 System.out.println(team5AcountRepository.findAll());
+	    	 team5Account.setPassWord(PassWord);
+	    	 team5AccountRepository.save(team5Account);
+	    	 System.out.println(team5AccountRepository.findAll());
 	    }
 	}
