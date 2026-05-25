@@ -1,33 +1,43 @@
 package com.example.demo.team5;
 
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.example.demo.team5.entity.Team5Account;
 import com.example.demo.team5.entity.Team5Validation;
+import com.example.demo.team5.service.Team5AccountService;
 import com.example.demo.team5.service.Team5Service;
 import com.example.demo.team5.service.Team5TypingService;
 
+import lombok.RequiredArgsConstructor;
 
-@Controller	
+
+@Controller
+@RequiredArgsConstructor
+@SessionAttributes(types = Team5AccountService.class)
 public class Team5Controller {
 public static Instant start,end;
 String sample;
-public Team5TypingService typing = new Team5TypingService();
-@Autowired
-private Team5Service typeServ;
-private List<Map<String, String>> userList = new ArrayList<>();
+
+private final Team5TypingService typing;
+private final Team5Service typeServ;
+private final Team5AccountService accountServ;
+
+
+@ModelAttribute("account")
+public Team5Account setupAccount() {
+	return new Team5Account();
+}
+
 //ログイン画面
 	//最初の画面へ
 		@GetMapping("/Team5/login")		
@@ -92,22 +102,19 @@ private List<Map<String, String>> userList = new ArrayList<>();
 	    // 送信先のパスを "/Team5/tourokuExecute" に変更します
 	    @PostMapping("/Team5/tourokuExecute")
 	    public String tourokuExecute(
-	        @Validated Team5Validation form, 
-	        BindingResult result
-	    ) throws Throwable {
-
+	    	@ModelAttribute @Validated Team5Account account, BindingResult result,Model model) throws Throwable {
 	        // 入力エラーがあれば、登録画面（Team5touroku.html）に戻す
 	        if (result.hasErrors()) {
 	            return "team5/Team5touroku";
 	        }
-
-	        // エラーがなければ名簿に保存してメニュー画面へ進む
-	        Map<String, String> user = new HashMap<>();
-	        user.put("username", form.getUsername());
-	        user.put("password", form.getPassword());
-	        userList.add(user);
-
-	        System.out.println("現在の登録者名簿: " + userList);
+	      //UserIdに重複があれば、戻す。
+	        if(accountServ.hasLoginId(account.getUserId())) {
+	        	model.addAttribute("isDuplicated",-1);
+	        	return "team5/Team5touroku";
+	        }
+	        //両方問題なければ追加
+	        accountServ.create(account);
+	        System.out.println(account);
 	        return "team5/Team5menu"; 
 	    }
 	    
