@@ -21,4 +21,7 @@ public class Team5Account {
 	@NotBlank(message = "パスワードを入力してください")
     @Size(min = 10, max = 30, message = "パスワードは10文字以上30文字以内で入力してください")
 	private String passWord;
+	
+	private Integer score;
+	
 }
