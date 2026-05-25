@@ -2,16 +2,20 @@ package com.example.demo.team5;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.team5.entity.Team5Validation;
 import com.example.demo.team5.service.Team5Service;
 import com.example.demo.team5.service.Team5TypingService;
 
@@ -25,7 +29,7 @@ public Team5TypingService typing = new Team5TypingService();
 private Team5Service typeServ;
 private List<Map<String, String>> userList = new ArrayList<>();
 //ログイン画面
-	//ログイン画面へ
+	//最初の画面へ
 		@GetMapping("/Team5/login")		
 		public String index () throws Throwable{	
 			System.out.println("確認");
@@ -33,24 +37,18 @@ private List<Map<String, String>> userList = new ArrayList<>();
 			return "team5/Team5login";	
 		}		
 		
-		//最初の画面からログイン２画面へ
+		//最初の画面からログイン画面へ
 		@PostMapping(value ="/Team5/login2" ,params = "login")		
 		public String send1() throws Throwable{
 			System.out.println("login to login2");
 			return "team5/Team5login2";	
 		}
 		
-		//最初の画面から新規登録画面へ
-		@PostMapping(value ="/Team5/touroku" )		
-		public String touroku() throws Throwable{
-			System.out.println("login to touroku");
-			return "team5/Team5touroku";
-		}
+	
 		
+
 		
-		
-		
-	//ログイン（入力）画面から戻る
+	//ログイン画面から戻る
 		@PostMapping(value ="/Team5/loginback" ,params = "loginback")		
 		public String loginback() throws Throwable{
 			System.out.println("login2 to login");
@@ -64,13 +62,15 @@ private List<Map<String, String>> userList = new ArrayList<>();
 			return "team5/Team5menu";	
 		}		
 		
-	//ログイン（入力）画面から戻る
+		
+		
+	//新規登録画面から戻る
 		@PostMapping(value ="/Team5/tourokuback" )		
 		public String tourokuback() throws Throwable{
 			System.out.println("login2 to login");
 			return "team5/Team5login";	
 				}					
-	//ログイン（入力）画面からメニュー画面
+	//新規登録画面からメニュー画面
 				
 		@PostMapping(value ="/Team5menu" )		
 		public String menu2() throws Throwable{
@@ -81,27 +81,27 @@ private List<Map<String, String>> userList = new ArrayList<>();
 		
 		
 		
-/*	
-	//登録画面の登録ボタン				
-		@PostMapping(value = "/Team5touroku", params = "touroku") // 元々の登録画面へ行く処理
-	    public String touroku(UserForm userForm) {
+
+		@PostMapping(value = "/Team5/touroku", params = "touroku")
+	    public String touroku(Team5Validation team5Validation) {
+	        System.out.println("login to touroku");
 	        return "team5/Team5touroku";
 	    }
 
-	    // ★登録ボタンが押されたときの処理を書き換えます
-	    @PostMapping("/Team5/touroku")
+	    // 2. 【修正】新規登録画面で「登録」ボタンが押されたときの処理
+	    // 送信先のパスを "/Team5/tourokuExecute" に変更します
+	    @PostMapping("/Team5/tourokuExecute")
 	    public String tourokuExecute(
-	        @Validated UserForm form, // @Validated をつけることで自動チェックしてくれます
-	        BindingResult result      // チェック結果がここに入ります
+	        @Validated Team5Validation form, 
+	        BindingResult result
 	    ) throws Throwable {
 
-	        // もし入力エラー（空っぽなど）が1つでもあったら
+	        // 入力エラーがあれば、登録画面（Team5touroku.html）に戻す
 	        if (result.hasErrors()) {
-	            // 登録画面（Team5touroku.html）に戻す
 	            return "team5/Team5touroku";
 	        }
 
-	        // --- エラーがなければ、今までの保存処理を行う ---
+	        // エラーがなければ名簿に保存してメニュー画面へ進む
 	        Map<String, String> user = new HashMap<>();
 	        user.put("username", form.getUsername());
 	        user.put("password", form.getPassword());
@@ -110,9 +110,7 @@ private List<Map<String, String>> userList = new ArrayList<>();
 	        System.out.println("現在の登録者名簿: " + userList);
 	        return "team5/Team5menu"; 
 	    }
-		*/
-		
-		
+	    
 		
 	//メニュー画面処理
 		//メニュー画面からタイピング画面へ

@@ -5,26 +5,18 @@
 <title>Insert title here</title>
 </head>
 <body>
-    <h1>新規登録</h1>
-
-    <form method="post" th:action="@{/Team5touroku}">
-        <h4>ユーザーネーム</h4>
-        <input type="text" name="username" />
-        <br>
-        <h4>パスワード</h4>
-        <input type="text" name="password" />
-        <br><br>
-        <input type="submit" value="登録" />
-    </form>
-
-    <br>
-
-    <form method="post" th:action="@{/Team5menu}">
-        <input type="submit" value="メニューへ" />
-    </form>
-
-    <form method="post" th:action="@{/Team5/tourokuback}">
-        <input type="submit" value="戻る" />
-    </form>
+	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${team5Validation}">
+	        <h4>ユーザーネーム</h4>
+	        <input type="text" th:field="*{username}" />
+	        <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;"></p>
+	        
+	        <br>
+	        <h4>パスワード</h4>
+	        <input type="text" th:field="*{password}" />
+	        <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;"></p>
+	        
+	        <br><br>
+	        <input type="submit" value="登録" />
+	    </form>
 </body>
 </html>
