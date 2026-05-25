@@ -1,3 +1,4 @@
+
 /*背景*/
 body{
 	background-color:#0d1b2a;
@@ -15,6 +16,10 @@ tr{
 		font-family: Arial;
 		font-size: 2rem;
 		border-bottom: 2px solid #1b4965;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		    
 }
 /*rannking文字*/
 caption{
