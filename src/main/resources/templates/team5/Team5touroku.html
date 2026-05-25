@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+    <h1>新規登録</h1>
+
+    <form method="post" th:action="@{/Team5touroku}">
+        <h4>ユーザーネーム</h4>
+        <input type="text" name="username" />
+        <br>
+        <h4>パスワード</h4>
+        <input type="text" name="password" />
+        <br><br>
+        <input type="submit" value="登録" />
+    </form>
+
+    <br>
+
+    <form method="post" th:action="@{/Team5menu}">
+        <input type="submit" value="メニューへ" />
+    </form>
+
+    <form method="post" th:action="@{/Team5/tourokuback}">
+        <input type="submit" value="戻る" />
+    </form>
+</body>
+</html>

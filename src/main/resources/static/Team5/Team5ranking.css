@@ -1,19 +1,20 @@
-/*
 /*背景*/
 body{
 	background-color:#0d1b2a;
 	font-family:Arial;
+	
 	align-items: center;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	height: 100vh;
 }
-
+/*ランク、ユーザー名、/分*/
 tr{
 	color:#ffffff;
 		font-family: Arial;
 		font-size: 2rem;
+		border-bottom: 2px solid #1b4965;
 }
 /*rannking文字*/
 caption{
@@ -23,6 +24,17 @@ caption{
 	margin-bottom: 30px;
 	letter-spacing: 2px;
 	border-bottom: 2px solid #1b4965;
+}
+
+.game-container {
+    width: 50%;
+    max-width: 800px;
+    background-color: rgba(27, 73, 101, 0.2); 
+    border: 1px solid #1b4965;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 5px;
 }
 
 /*戻るボタン*/
