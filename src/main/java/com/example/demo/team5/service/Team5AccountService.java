@@ -1,5 +1,7 @@
 package com.example.demo.team5.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.team5.entity.Team5Account;
@@ -17,6 +19,9 @@ public class Team5AccountService {
 	    	 repository.save(account);
 	    }
 	    
+	    public List<Team5Account> findAll(){
+	    	return repository.findAll();
+	    }
 	    public boolean hasLoginId(String inputId) {
 	    	if(repository.existsByUserId(inputId)) {
 	    		return true;
@@ -26,7 +31,7 @@ public class Team5AccountService {
 	    }
 	    
 	    public boolean canLogin(String Id,String PassWord) {
-	    	String UserPass = repository.findByPassWord(Id).getPassWord();
+	    	String UserPass = repository.findByUserId(Id).getPassWord();
 	    	if(repository.existsByUserId(Id) && UserPass.equals(PassWord)){
 	    		return true;
 	    	}else {

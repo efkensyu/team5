@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import com.example.demo.team5.entity.Team5Account;
 import com.example.demo.team5.entity.Team5Validation;
@@ -33,7 +34,7 @@ private final Team5Service typeServ;
 private final Team5AccountService accountServ;
 
 
-@ModelAttribute("account")
+@ModelAttribute("team5Account")
 public Team5Account setupAccount() {
 	return new Team5Account();
 }
@@ -66,10 +67,18 @@ public Team5Account setupAccount() {
 				}
 		
 	//ログイン（入力）画面からメニュー画面
+	//ログイン本体の処理を記入する。
 		@PostMapping(value ="/Team5/menu" ,params = "menu")		
-		public String menu1() throws Throwable{
-			System.out.println("login2 to menu");
-			return "team5/Team5menu";	
+		public String menu1(@ModelAttribute Team5Account team5Account,SessionStatus status,Model model) throws Throwable{
+			System.out.println(accountServ.findAll());
+			status.setComplete();
+			System.out.println(team5Account);
+			if(accountServ.canLogin(team5Account.getUserId(),team5Account.getPassWord())) {
+				return "team5/Team5menu";
+			}else {
+				model.addAttribute("logged",-1);
+				return "team5/Team5login2";
+			}
 		}		
 		
 		
@@ -102,19 +111,25 @@ public Team5Account setupAccount() {
 	    // 送信先のパスを "/Team5/tourokuExecute" に変更します
 	    @PostMapping("/Team5/tourokuExecute")
 	    public String tourokuExecute(
-	    	@ModelAttribute @Validated Team5Account account, BindingResult result,Model model) throws Throwable {
-	        // 入力エラーがあれば、登録画面（Team5touroku.html）に戻す
+	    		@Validated @ModelAttribute Team5Account team5Account, 
+	    								BindingResult result,
+	    								Model model,
+	    								SessionStatus status) throws Throwable {
+	    	status.setComplete();
+	    	// 入力エラーがあれば、登録画面（Team5touroku.html）に戻す
 	        if (result.hasErrors()) {
+	        	System.out.println(result);
 	            return "team5/Team5touroku";
 	        }
 	      //UserIdに重複があれば、戻す。
-	        if(accountServ.hasLoginId(account.getUserId())) {
+	        if(accountServ.hasLoginId(team5Account.getUserId())) {
 	        	model.addAttribute("isDuplicated",-1);
+	        	System.out.println("test");
 	        	return "team5/Team5touroku";
 	        }
 	        //両方問題なければ追加
-	        accountServ.create(account);
-	        System.out.println(account);
+	        accountServ.create(team5Account);
+	        System.out.println(accountServ.findAll());
 	        return "team5/Team5menu"; 
 	    }
 	    
@@ -140,7 +155,14 @@ public Team5Account setupAccount() {
 					System.out.println("ranking to menu");
 					return "team5/Team5menu";	
 				}
-				
+		//メニュー画面からログアウトを行う
+		//遷移は
+		@PostMapping(value ="/Team5/logout",params="logout" )		
+		public String logout(SessionStatus status) throws Throwable{
+			status.setComplete();
+			return "team5/Team5login";	
+					}	
+		
 		
 		//タイピング画面からメニュー画面へ
 		@PostMapping(value ="/Team5/menu",params="return")	
