@@ -38,4 +38,9 @@ public class Team5AccountService {
 	    	return false;
 	    }
 	    }
+	    public void Addscore(Team5Account account,Integer score) {
+	    	 account.setScore(score);
+	    	 repository.save(account);
+	    }
+	    
 	}

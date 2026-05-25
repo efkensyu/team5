@@ -15,5 +15,6 @@ public class Team5Score {
 	public Double time;
 	public Integer correctCount;
 	public Integer missCount;
+	public Integer perMinutes;
 	
 }

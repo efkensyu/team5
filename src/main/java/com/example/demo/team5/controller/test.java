@@ -18,6 +18,9 @@ public class test {
 		System.out.println(team5Service.getTypingBody());
 		
 		return "team5/Team5login";	
+		
+		//ランキング画面への分間打鍵数を渡す
+		//model.addAttribute("Min",typing.getcalcM(start,end));
 	}		
 	
 
