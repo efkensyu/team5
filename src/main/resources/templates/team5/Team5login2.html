@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel = "stylesheet" th:href="@{/Team5/Team5login2.css}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -13,7 +14,7 @@
 			<h4>パスワード</h4>
 			<input type="text" name="passWord"/>	
 			<br>
-			<input type="submit" name="menu" value="メニューへ" />
+			<input type="submit" name="menu" value="ログイン" />
 		</form>
 		
 		<form method="post" th:action="@{/Team5/loginback}" >

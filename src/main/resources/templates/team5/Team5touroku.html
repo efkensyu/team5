@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<link rel = "stylesheet" th:href="@{/Team5/Team5touroku.css}">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -18,5 +19,9 @@
 	        <br><br>
 	        <input type="submit" value="登録" />
 	    </form>
+		<form method="post" th:action="@{/Team5/loginback}" >
+		<input type="submit" name="tourokuback" value="戻る" />
+		</form>
+		
 </body>
 </html>
