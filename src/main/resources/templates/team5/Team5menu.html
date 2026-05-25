@@ -9,17 +9,16 @@
 
 <h2>メニュー</h2>
 <form method="post" th:action="@{/Team5/typi}">
-	
 		<br>
-		
 		<input type="submit" name= "next" value="タイピングする" />
-		
 	</form>
 	<form method="post" th:action="@{/Team5/ranking}">
-		
 			<br>
-			
 			<input type="submit" name= "result" value="ランキングを見る" />
-		</form>		
+		</form>
+	<form method="post" th:action="@{/Team5/logout}">
+		<br>
+		<input type="submit" name="logout" value="ログアウト"/>
+	</form>
 </body>
 </html>

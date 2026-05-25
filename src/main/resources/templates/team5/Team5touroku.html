@@ -5,7 +5,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${account}">
+	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${team5Account}">
 	        <h4>ユーザーネーム</h4>
 	        <input type="text" th:field="*{userId}" />
 	        <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color: red;"></p>
