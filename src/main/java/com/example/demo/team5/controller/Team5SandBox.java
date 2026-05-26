@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.example.demo.team5.service.Team5Service;
 
 @Controller
-public class test {
+public class Team5SandBox {
 	@Autowired
 	private Team5Service team5Service;
 	
