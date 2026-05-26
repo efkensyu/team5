@@ -46,5 +46,22 @@ public class Team5AccountService {
 	    	account.setScore(score);
 	    	repository.save(account);
 	    }
+	    public List<Team5Account> getTop5Accounts(){
+	    	return repository.findTop5ByOrderByScoreDesc();
+	    }
+	    
+	    //debug
+	    public void createDummyAccount(int num) { 
+	    	if(repository.count() > num) {
+	    		return;
+	    	}
+	    	for(int i = 0;i < num;i++) {
+	    		Team5Account dummy = new Team5Account();
+	    		dummy.setUserId("dummy" + i);
+	    		dummy.setPassWord("dummydummy" + i);
+	    		dummy.setScore(i);
+	    		create(dummy);
+	    	}
+	    }
 	    
 	}

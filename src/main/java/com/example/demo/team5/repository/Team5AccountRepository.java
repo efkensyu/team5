@@ -1,5 +1,7 @@
 package com.example.demo.team5.repository;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +12,6 @@ public interface Team5AccountRepository extends JpaRepository <Team5Account,Stri
 	public boolean existsByUserId(String UserId);
 
 	public Team5Account findByUserId(String UserId);
-	//public void setScore(Integer score);
+	public List<Team5Account> findTop5ByOrderByScoreDesc();
 
 }

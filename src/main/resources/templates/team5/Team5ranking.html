@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.ofg">
+<html xmlns:th="http://www.thymeleaf.org">
 <link rel = "stylesheet" th:href="@{/Team5/Team5ranking.css}">
 <head>
 <meta charset="UTF-8">
@@ -9,40 +9,16 @@
 	<div class="positionCenter game-container">	
 		<table>
 			<caption>Ranking</caption>
-			<tr>
-				<td>1</td>
-				<td th:text=${empform.name}></td>
-				<td th:text="${Min} + /分"></td>
-			</tr>
-			
-			<tr>
-				<td>2</td>
-				<td>ユーザー</td>
-				<td th:text="${Min} + /分"></td>
-			</tr>			
-			
-			<tr>
-				<td>3</td>
-				<td>ユーザー</td>
-				<td th:text="${Min} + /分"></td>
-			</tr>	
-			
-			<tr>
-				<td>4</td>
-				<td>ユーザー</td>
-				<td th:text="${Min} + /分"></td>
-			</tr>	
-			
-			<tr>
-				<td>5</td>
-				<td>ユーザー</td>
-				<td th:text="${Min} + /分"></td>
-			</tr>			
+			<tr th:each="rank,stat : ${ranking}" th:object="${rank}">
+				<td th:text="${stat.count}"></td>
+				<td th:text="*{userId}"></td>
+				<td th:text="*{score}"></td>
+			</tr>		
 		</table>
 		</div>
 			<br>
 	<form method="post" th:action="@{/Team5/rankingback}">
-			<input type="submit" name= return value="戻る"  />
+			<input type="submit" name= "return" value="戻る"  />
 	</form>	
 			
 </body>

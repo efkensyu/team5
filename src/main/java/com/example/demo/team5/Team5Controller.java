@@ -1,6 +1,7 @@
 package com.example.demo.team5;
 
 import java.time.Instant;
+import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +45,8 @@ public Team5Account setupAccount() {
 		@GetMapping("/Team5/login")		
 		public String index () throws Throwable{	
 			System.out.println("確認");
+			//Debug
+			accountServ.createDummyAccount(10);
 			
 			return "team5/Team5login";	
 		}		
@@ -146,6 +149,8 @@ public Team5Account setupAccount() {
 		//メニュー画面からランキング画面へ
 				@PostMapping(value ="/Team5/ranking",params="result")		
 				public String sendrank(Model model) throws Throwable{
+					List<Team5Account> rank = accountServ.getTop5Accounts();
+					model.addAttribute("ranking",rank);
 					//rankingへの値を渡す。
 					
 					System.out.println("menu to rankings");
