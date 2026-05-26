@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel = "stylesheet" th:href="@{/Team5/Team5typing.css}">
+<link rel = "stylesheet" th:href="Team5typing.css">
 <head>
 <meta charset="UTF-8">
 <title>Typing555!</title>
@@ -13,10 +13,19 @@
 			<input type="submit" name= return value="戻る" class="back" />
 	</form>	
 	
-	<form method="post" th:action="@{/Team5/uchikomi}">
-						<br>
-						<input type="submit" name= clear value="スタート！" class="start" />
-		</form>
-	</div>
+	<form id="start-form" method="post" th:action="@{/Team5/uchikomi}">
+	    <br>
+	    <input type="hidden" name="clear" value="スタート！" />
+	    
+	    <input type="submit" name="clear" value="スタート！" class="start" />
+	</form>
+	</div> <script>
+	    document.addEventListener('keydown', function(event) {
+	        if (event.key === 'Enter') {
+	            event.preventDefault(); // Enterで「戻る」が動くのを防ぐ
+	            document.getElementById('start-form').submit(); // スタートを強制実行
+	        }
+	    });
+	</script>
 </body>
 </html>
