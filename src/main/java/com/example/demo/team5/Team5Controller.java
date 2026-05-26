@@ -45,7 +45,6 @@ public Team5Account setupAccount() {
 		@GetMapping("/Team5/login")		
 		public String index () throws Throwable{	
 			//Debug
-			accountServ.createDummyAccount(10);
 			
 			return "team5/Team5login";	
 		}		
