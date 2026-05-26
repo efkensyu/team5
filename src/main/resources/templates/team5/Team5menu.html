@@ -3,11 +3,12 @@
 <link rel = "stylesheet" th:href="@{/Team5/Team5menu.css}">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Typing555!</title>
 </head>
 <body>
 
 <h2>メニュー</h2>
+<p class="user-name" th:text="|現在ログイン中のユーザ名 ： ${session.team5Account.userId}|">>名前</p>
 <form method="post" th:action="@{/Team5/typi}">
 		<br>
 		<input type="submit" name= "next" value="タイピングする" />

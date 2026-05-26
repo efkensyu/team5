@@ -1,56 +1,98 @@
+/* 背景 */
+body {
+    background-color: #0d1b2a;
+    font-family: Arial;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
 
-/*背景*/
-body{
-	background-color:#0d1b2a;
-	font-family:Arial;
-	
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 100vh;
-}
-/*ランク、ユーザー名、/分*/
-tr{
-	color:#ffffff;
-		font-family: Arial;
-		font-size: 2rem;
-		border-bottom: 2px solid #1b4965;
-		align-items: center;
-		    
-}
-/*rannking*/
-caption{
-	font-family: Arial;
-	color:#4cc9f0;
-	font-size: 3rem;	
-	margin-bottom: 30px;
-	letter-spacing: 2px;
-	border-bottom: 2px solid #1b4965;
-}
-/*箱*/
+/* 箱 */
 .game-container {
     width: 50%;
     max-width: 800px;
-    background-color: rgba(27, 73, 101, 0.2); 
+    background-color: rgba(27, 73, 101, 0.2);
     border: 1px solid #1b4965;
     border-radius: 15px;
-    padding: 20px;
+    padding: 20px 30px;       /* ← 上下余白を削減 */
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
-/*戻るボタン*/
-input[type="submit"]{
-	color: #ffffff;
-	border: 2px solid #62b6cb;
-	border-radius: 8px;
-	font-size: 1.1rem;
-	font-weight: bold;
-	cursor: pointer;
-	box-shadow: 0 4px 15px rgba(27, 73, 101, 0.4);
-	background-color: #111e2e; 
-	border: 2px solid #415a77; 
-	padding: 12px 35px;
-	
+/* テーブル全体 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Ranking タイトル */
+caption {
+    font-family: Arial;
+    color: #4cc9f0;
+    font-size: 2.2rem;       
+    margin-bottom: 10px;    
+    letter-spacing: 2px;
+    border-bottom: 2px solid #1b4965;
+    text-align: left;         
+    padding-bottom: 8px;
+}
+
+/*セル見出し*/
+th {
+    color: #4cc9f0;
+    font-size: 1rem;
+    text-align: right;
+    padding: 4px 16px 8px 0;
+    border-bottom: 2px solid #1b4965;
+    font-weight: normal;      
+    letter-spacing: 1px;
+    background-color: transparent;  
+}
+
+/* 行 */
+tr {
+    border-bottom: 1px solid #1b4965;  /* ← 細く */
+}
+
+/* セル共通 */
+td {
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 1.3rem;        /* ← 小さく調整 */
+    padding: 6px 16px 6px 0; /* ← 余白削減・左揃えのため右にだけ間隔 */
+    text-align: right;
+}
+
+/* 順位列（1列目）だけ幅固定 */
+td:nth-child(1) {
+    width: 40px;
+    color: #4cc9f0;           /* ← 順位を青色にして目立たせる */
+}
+
+/* スコア列（3列目）*/
+td:nth-child(3) {
+    width: 100px;
+}
+
+/* 戻るボタン */
+form {
+    width: 50%;
+    max-width: 800px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+input[type="submit"] {
+    color: #ffffff;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(27, 73, 101, 0.4);
+    background-color: #111e2e;
+    border: 2px solid #415a77;
+    padding: 10px 30px;       /* ← 余白削減 */
 }

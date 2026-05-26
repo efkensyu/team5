@@ -9,6 +9,11 @@
 	<div class="positionCenter game-container">	
 		<table>
 			<caption>Ranking</caption>
+			<tr>
+			    <th>順位</th>        
+			    <th>名前</th>
+			    <th>スコア</th>
+			</tr>
 			<tr th:each="rank,stat : ${ranking}" th:object="${rank}">
 				<td th:text="${stat.count}"></td>
 				<td th:text="*{userId}"></td>

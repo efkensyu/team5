@@ -11,6 +11,15 @@ body {
     height: 100vh;
 }
 
+.user-name {
+    color: #4cc9f0;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-left: 3px solid #1b4965;
+    padding-left: 10px;
+    margin-bottom: 20px;
+}
+
 /* メニュー */
 h2 {
     font-size: 2.5rem;
