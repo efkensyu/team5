@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Typing555!</title>
-<link rel="stylesheet" th:href="@{Team5uchikomi.css}" type="text/css">
+<link rel="stylesheet" th:href="Team5uchikomi.css" type="text/css">
 </head>
 <body>
     
     <div class="positionCenter game-container">
-        <p class="sampleBody question-text">
-            <th:block th:text = "${reibun}"></th:block>
-        </p>
+        <th:block class="sampleBody question-text">
+            <p class="question-text" th:text = "${reibun}"></p>
+        </th:block>
     </div>
 
 	<form id="complete-form" method="post" th:action="@{/Team5/result}">

@@ -44,6 +44,7 @@ body {
 
 /* お題のテキスト */
 .question-text {
+	user-select: none;
     font-size: 1.3rem;
     color: #4cc9f0 !important; 
     line-height: 1.8;
