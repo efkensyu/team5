@@ -1,4 +1,4 @@
-/* 全体の設定 */
+/* 全体 */
 body {
     
     font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -11,7 +11,7 @@ body {
     height: 100vh;
 }
 
-/* タイトル（メニュー）のデザイン */
+/* メニュー */
 h2 {
     font-size: 2.5rem;
     color: #4cc9f0; 

@@ -1,4 +1,4 @@
-
+/*背景、文字*/
 body {
     font-family: Arial;
     background-color: #0d1b2a;
@@ -10,7 +10,7 @@ body {
     height: 100vh;
     margin: 0; 
 	}
-
+/*結果発表*/
 h1 {
     font-size: 2.8rem;
     color: #4cc9f0;
@@ -19,7 +19,7 @@ h1 {
     border-bottom: 2px solid #1b4965;
     padding-bottom: 15px;
 }
-
+/*真ん中にする*/
 form {
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@ form {
     width: 100%;
     max-width: 500px; 
 }
-
+/*文字*/
 h2 {
     font-size: 1.6rem;
     font-weight: 500;
@@ -36,7 +36,7 @@ h2 {
     letter-spacing: 1px;
 }
 
-
+/*戻るボタン*/
 input[type="submit"] {
     background-color: #1b4965;
     color: #ffffff;
