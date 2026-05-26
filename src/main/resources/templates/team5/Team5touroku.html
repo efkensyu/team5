@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<link rel = "stylesheet" th:href="@{/Team5/Team5touroku.css}">
+<link rel = "stylesheet" th:href="Team5touroku.css">
 <head>
 <meta charset="UTF-8">
 <title>Typing555!</title>
 </head>
 <body>
+	<h1>新規会員登録</h1>
 	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${team5Account}">
 			<p th:if="${isDuplicated == -1}" style="color: red;">このIDは既に登録されています。</p>
 	        <h4>ユーザーネーム</h4>

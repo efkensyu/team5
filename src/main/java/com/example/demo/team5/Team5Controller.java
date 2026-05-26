@@ -96,7 +96,6 @@ public Team5Account setupAccount() {
 			return "team5/Team5login";	
 				}					
 	//新規登録画面からメニュー画面
-				
 		@PostMapping(value ="/Team5menu" )		
 		public String menu2() throws Throwable{
 			return "team5/Team5menu";	

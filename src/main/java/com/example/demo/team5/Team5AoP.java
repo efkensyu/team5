@@ -19,8 +19,7 @@ public class Team5AoP {
 		Object result;
 		try {result = jp.proceed();
 		}catch(Exception e) {
-			System.out.println(e);
-			log.error("Postメソッドのerrorログ");
+			log.error("Postメソッドのerrorログ", e);
 			return "team5/Team5error";	
 		}
 		//メソッド実行　indexが動いたら
