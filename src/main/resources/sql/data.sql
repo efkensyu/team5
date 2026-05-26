@@ -16,4 +16,4 @@ INSERT INTO Team5_TYPING_TBL VALUES(15, '婚期を逃す');
 INSERT INTO Team5_TYPING_TBL VALUES(16, 'しびしびしびび');
 INSERT INTO Team5_TYPING_TBL VALUES(17, '泣かぬならホトトギス');
 INSERT INTO Team5_TYPING_TBL VALUES(18, 'アンパンマン');
-insert into Team5_LOGIN_TBL values('adm','adm',null)
+insert into Team5_LOGIN_TBL values('adm','adm123456789',null)

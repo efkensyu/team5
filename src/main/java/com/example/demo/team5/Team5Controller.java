@@ -24,7 +24,7 @@ import lombok.RequiredArgsConstructor;
 
 @Controller
 @RequiredArgsConstructor
-@SessionAttributes(types = Team5AccountService.class)
+@SessionAttributes("team5Account")
 public class Team5Controller {
 public static Instant start,end;
 String sample;
@@ -69,14 +69,14 @@ public Team5Account setupAccount() {
 	//ログイン（入力）画面からメニュー画面
 	//ログイン本体の処理を記入する。
 		@PostMapping(value ="/Team5/menu" ,params = "menu")		
-		public String menu1(@ModelAttribute Team5Account team5Account,SessionStatus status,Model model) throws Throwable{
+		public String login(@ModelAttribute("team5Account") Team5Account team5Account,SessionStatus status,Model model) throws Throwable{
 			System.out.println(accountServ.findAll());
-			status.setComplete();
 			System.out.println(team5Account);
 			if(accountServ.canLogin(team5Account.getUserId(),team5Account.getPassWord())) {
 				return "team5/Team5menu";
 			}else {
 				model.addAttribute("logged",-1);
+				status.setComplete();
 				return "team5/Team5login2";
 			}
 		}		
@@ -115,20 +115,22 @@ public Team5Account setupAccount() {
 	    								BindingResult result,
 	    								Model model,
 	    								SessionStatus status) throws Throwable {
-	    	status.setComplete();
 	    	// 入力エラーがあれば、登録画面（Team5touroku.html）に戻す
 	        if (result.hasErrors()) {
 	        	System.out.println(result);
+	        	status.setComplete();
 	            return "team5/Team5touroku";
 	        }
 	      //UserIdに重複があれば、戻す。
 	        if(accountServ.hasLoginId(team5Account.getUserId())) {
 	        	model.addAttribute("isDuplicated",-1);
 	        	System.out.println("test");
+	        	status.setComplete();
 	        	return "team5/Team5touroku";
 	        }
 	        //両方問題なければ追加
 	        accountServ.create(team5Account);
+	        model.addAttribute("team5Account",team5Account);
 	        System.out.println(accountServ.findAll());
 	        return "team5/Team5menu"; 
 	    }
@@ -198,7 +200,11 @@ public Team5Account setupAccount() {
 		//タイピング実施画面から結果画面へ
 		//計測終了
 		@PostMapping(value ="/Team5/result",params="next")		
-		public String send5(@RequestParam String inputText,Model model) throws Throwable {
+		public String send5(
+				@RequestParam String inputText,
+				@ModelAttribute("team5Account") Team5Account team5Account,
+				Model model
+				) throws Throwable {
 			end = typing.getLocalTime();
 			
 			//sample文字列と入力された文字を入力
@@ -213,11 +219,12 @@ public Team5Account setupAccount() {
 			model.addAttribute("Per",PerSt);
 			model.addAttribute("Cor",typing.getCorrect());
 			model.addAttribute("Wor",typing.getWrong());
-			
+			System.out.println("ログイン中アカウント : " +team5Account);
 			model.addAttribute("Min",typing.getcalcM(start,end));
 			model.addAttribute("inputText",inputText);
 			//throw new Exception();
-			
+			accountServ.addScore(team5Account,(int)typing.getcalcM(start,end));
+			System.out.println("ログイン中アカウント : " +team5Account);
 			return "team5/Team5result";
 		}
 //タイピング実施画面 to 結果画面

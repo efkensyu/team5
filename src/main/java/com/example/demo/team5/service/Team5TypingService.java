@@ -53,13 +53,14 @@ public class Team5TypingService{
 	}
 	
 	
-
-
-
+	
 	//正誤誤判定
 	public void checkArticle(String inputText,String sampleText) {
 		//x[0]は間違え数
 		//x[1]は合計文字数
+		correctCount=0;
+		wrongCount=0;
+		totalCount=0;
 		int[] x = {0,0};
 		int il = inputText.length();
 		int sl = sampleText.length();
