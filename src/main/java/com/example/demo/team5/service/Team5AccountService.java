@@ -31,8 +31,8 @@ public class Team5AccountService {
 	    }
 	    
 	    public boolean canLogin(String Id,String PassWord) {
-	    	String UserPass = repository.findByUserId(Id).getPassWord();
-	    	if(repository.existsByUserId(Id) && UserPass.equals(PassWord)){
+	    	Team5Account findByUserId = repository.findByUserId(Id);
+	    	if(findByUserId != null && findByUserId.getPassWord().equals(PassWord)){
 	    		return true;
 	    	}else {
 	    	return false;
