@@ -7,6 +7,7 @@
 </head>
 <body>
 	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${team5Account}">
+			<p th:if="${isDuplicated == -1}" style="color: red;">このIDは既に登録されています。</p>
 	        <h4>ユーザーネーム</h4>
 	        <input type="text" th:field="*{userId}" />
 	        <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color: red;"></p>
@@ -20,7 +21,7 @@
 	        <input type="submit" value="登録" />
 	    </form>
 		<form method="post" th:action="@{/Team5/loginback}" >
-		<input type="submit" name="tourokuback" value="戻る" />
+		<input type="submit" name="loginback" value="戻る" />
 		</form>
 		
 </body>

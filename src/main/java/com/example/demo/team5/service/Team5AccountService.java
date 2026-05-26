@@ -38,6 +38,7 @@ public class Team5AccountService {
 	    	return false;
 	    }
 	    }
+	    
 	    public void addScore(Team5Account account,Integer score) {
 	    	Integer nowScore = account.getScore();
 	    	if(nowScore != null && nowScore > score) {
@@ -46,6 +47,7 @@ public class Team5AccountService {
 	    	account.setScore(score);
 	    	repository.save(account);
 	    }
+	    
 	    public List<Team5Account> getTop5Accounts(){
 	    	return repository.findTop5ByOrderByScoreDesc();
 	    }

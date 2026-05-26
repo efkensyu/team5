@@ -4,7 +4,8 @@
 /* 画面全体の背景 */
 body {
     margin: 0;
-    padding: 0;
+    padding: 20px;
+	box-sizing: border-box;
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: #0d1b2a; 
     color: #e0e1dd;
@@ -14,6 +15,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+	
+	
 }
 
 /* 中央配置のベース（元のJavaの動きを維持するための設定） */
@@ -28,7 +31,8 @@ body {
 
 /* お題を囲うゲームコンテナ */
 .game-container {
-    width: 80%;
+    width: 90%;
+	box-sizing: border-box;
     max-width: 800px;
     background-color: rgba(27, 73, 101, 0.2); 
     border: 1px solid #1b4965;
@@ -61,9 +65,8 @@ textarea {
     resize: none;
     
     /*  */
-    width: 1000px !important; 
-    max-width: 80% !important; /* 画面が狭いときは画面の80%に自動縮小 */
-    
+    width: 90%; 
+    max-width: 800px;
     height: 150px; 
     
     background-color: #0d1b2a;
@@ -77,6 +80,11 @@ textarea {
     box-sizing: border-box;
 }
 
+form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 
 /* ボタン */
 input[type="submit"] {
