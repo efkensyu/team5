@@ -13,11 +13,11 @@ body {
 /* 箱 */
 .game-container {
     width: 50%;
-    max-width: 800px;
+    max-width: 500px;
     background-color: #111;
     border: 1px solid #1b4965;
     border-radius: 15px;
-    padding: 20px 30px;      
+    padding: 20px 20px;      
     margin-bottom: 10px;
 }
 
