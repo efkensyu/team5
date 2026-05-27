@@ -30,7 +30,12 @@
 	    </form>
 
 	<script>
-	    // 画面全体でキー入力を監視
+		//自動的にフォーカスが合うように変更
+		window.onload = function(){
+		document.querySelector('textarea').focus();
+	    };
+		
+		// 画面全体でキー入力を監視
 	    document.addEventListener('keydown', function(event) {
 	        // 押されたキーが Enter キーの場合
 	        if (event.key === 'Enter') {
