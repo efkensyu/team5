@@ -119,15 +119,10 @@ public Team5Account setupAccount() {
 	    								Model model,
 	    								SessionStatus status) throws Throwable {
 	    	// 入力エラーがあれば、登録画面（Team5touroku.html）に戻す
-	        if (result.hasErrors()) {
+	        if (result.hasErrors() || accountServ.hasLoginId(team5Account.getUserId())) {
+	        	if(accountServ.hasLoginId(team5Account.getUserId())) model.addAttribute("isDuplicated",-1);
 	        	status.setComplete();
 	            return "team5/Team5touroku";
-	        }
-	      //UserIdに重複があれば、戻す。
-	        if(accountServ.hasLoginId(team5Account.getUserId())) {
-	        	model.addAttribute("isDuplicated",-1);
-	        	status.setComplete();
-	        	return "team5/Team5touroku";
 	        }
 	        //両方問題なければ追加
 	        accountServ.create(team5Account);
