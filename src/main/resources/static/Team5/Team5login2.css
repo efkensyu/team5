@@ -36,7 +36,7 @@ form {
     align-items: center;
     width: 100%;
     max-width: 350px; 
-    background-color: rgba(27, 73, 101, 0.2); 
+    background-color:#111; 
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #1b4965;
