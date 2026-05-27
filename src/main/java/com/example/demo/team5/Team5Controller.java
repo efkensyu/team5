@@ -116,11 +116,20 @@ public Team5Account setupAccount() {
 	    public String tourokuExecute(
 	    		@Validated @ModelAttribute Team5Account team5Account, 
 	    								BindingResult result,
+	    		@RequestParam("passwordConfirm") String passwordConfirm,
 	    								Model model,
 	    								SessionStatus status) throws Throwable {
 	    	// 入力エラーがあれば、登録画面（Team5touroku.html）に戻す
-	        if (result.hasErrors() || accountServ.hasLoginId(team5Account.getUserId())) {
-	        	if(accountServ.hasLoginId(team5Account.getUserId())) model.addAttribute("isDuplicated",-1);
+	        if (result.hasErrors() || accountServ.hasLoginId(team5Account.getUserId())
+	        		|| !team5Account.getPassWord().equals(passwordConfirm)) {
+	        	if(accountServ.hasLoginId(team5Account.getUserId())) {
+	        		model.addAttribute("isDuplicated",true);
+	        	}
+	        	if(!team5Account.getPassWord().equals(passwordConfirm)) {
+	        		if(!team5Account.getPassWord().isBlank() || !passwordConfirm.isBlank()) {
+	        			model.addAttribute("isMatchedPassword",true);	
+	        		}
+	        	}
 	        	status.setComplete();
 	            return "team5/Team5touroku";
 	        }

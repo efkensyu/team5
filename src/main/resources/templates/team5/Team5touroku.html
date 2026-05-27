@@ -8,10 +8,17 @@
 <body>
 	<h1>新規会員登録</h1>
 	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${team5Account}">
-			<p th:if="${isDuplicated == -1}" style="color: red;">このIDは既に登録されています。</p>
-			<p id="confirmError" style="color: red; display:none;">パスワードが一致しません</p>
+		<!-- 変更後 -->
+			<p th:style="${isDuplicated == true} ? 'color: red;' : 'display: none;'">
+				このIDは既に登録されています。
+			</p>
+			
+			<p th:style="${isMatchedPassword == true} ? 'color: red;' : 'display: none;'">
+				パスワードが一致しません
+			</p>
+			
 	        <h4>ユーザーネーム</h4>
-	        <input type="text" th:field="*{userId}" />
+	        <input type="text" th:field="*{userId}" oninput="clearDuplicateError()"/>
 			<p>(~30文字)</p>
 			
 	        <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color: red;"></p>
@@ -24,24 +31,13 @@
 	        <p th:if="${#fields.hasErrors('passWord')}" th:errors="*{passWord}" style="color: red;"></p>
 			<br>
 			<h4>パスワード（確認）</h4>
-			<input type="password" id="passWordConfirm" />
+			<input type="password" id="passwordConfirm" name="passwordConfirm"/>
 			<p>(10~30文字)</p>
 	        <br><br>
-	        <input type="submit" value="登録" onclick="return checkPassword()"/>
+	        <input type="submit" value="登録"/>
 	    </form>
 		<form method="post" th:action="@{/Team5/loginback}" >
 		<input type="submit" name="loginback" value="戻る"/>
 		</form>
-		<script>
-		function checkPassword() {
-		    const pw = document.getElementById("passWord").value;
-		    const confirm = document.getElementById("passWordConfirm").value;
-		    if (pw !== confirm) {
-		        document.getElementById("confirmError").style.display = "block";
-		        return false;
-		    }
-		    return true;
-		}
-		</script>
 </body>
 </html>
