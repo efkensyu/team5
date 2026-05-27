@@ -12,18 +12,20 @@
 			<p id="confirmError" style="color: red; display:none;">パスワードが一致しません</p>
 	        <h4>ユーザーネーム</h4>
 	        <input type="text" th:field="*{userId}" />
+			<p>(~30文字)</p>
+			
 	        <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color: red;"></p>
 	        
 	        <br>
 	        <h4>パスワード</h4>
 	        <input type="password" th:field="*{passWord}" id="passWord"/>
-	        <p th:if="${#fields.hasErrors('passWord')}" th:errors="*{passWord}" style="color: red;"></p>
+			<p>(10~30文字)</p>
 			
+	        <p th:if="${#fields.hasErrors('passWord')}" th:errors="*{passWord}" style="color: red;"></p>
 			<br>
 			<h4>パスワード（確認）</h4>
 			<input type="password" id="passWordConfirm" />
-			
-	        
+			<p>(10~30文字)</p>
 	        <br><br>
 	        <input type="submit" value="登録" onclick="return checkPassword()"/>
 	    </form>

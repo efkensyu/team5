@@ -76,3 +76,12 @@ input[type="submit"] {
     text-align: center;
     margin-top: 10px;
 }
+
+input + p {
+    font-size: 0.8rem;
+    color: #aaaaaa;
+    margin: -15px 0 0 auto;
+    text-align: right;
+    width: fit-content;
+    opacity: 0.8;
+}
