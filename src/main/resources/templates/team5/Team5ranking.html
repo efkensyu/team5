@@ -22,6 +22,21 @@
 		</table>
 		</div>
 			<br>
+			<div class="positionCenter game-container">	
+				<table>
+					<caption>あなたの成績</caption>
+					<tr>
+					    <th>順位</th>        
+					    <th>名前</th>
+					    <th>スコア</th>
+					</tr>
+					<tr th:object="${nowUser}">
+						<td th:text="${nowRanking}"></td>
+						<td th:text="*{userId}"></td>
+						<td th:text="*{score}"></td>
+					</tr>
+				</table>
+				</div>
 	<form method="post" th:action="@{/Team5/rankingback}">
 			<input type="submit" name= "return" value="戻る"  />
 	</form>	

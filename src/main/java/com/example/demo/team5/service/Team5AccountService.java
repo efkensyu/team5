@@ -65,4 +65,20 @@ public class Team5AccountService {
 	    		create(dummy);
 	    	}
 	    }
+	    
+	    public int getRanking(int score) {
+	    	List<Team5Account> rankings = repository.findByOrderByScoreDesc();
+	    	
+	    	for(int i = 0 ; i < rankings.size();i++) {
+	    		if(rankings.get(i).getScore() == null) {
+	    			return (i+1);
+	    		}
+	    		if(rankings.get(i).getScore() <= score) {
+	    			return (i+1);
+	    		}
+	    	}
+	    	return -1;
+	    }
+	    
+	    
 	}

@@ -148,10 +148,19 @@ public Team5Account setupAccount() {
 		}
 		//メニュー画面からランキング画面へ
 				@PostMapping(value ="/Team5/ranking",params="result")		
-				public String sendrank(Model model) throws Throwable{
+				public String sendrank(@ModelAttribute("team5Account") Team5Account account,Model model) throws Throwable{
 					List<Team5Account> rank = accountServ.getTop5Accounts();
 					model.addAttribute("ranking",rank);
 					//rankingへの値を渡す。
+					model.addAttribute("nowUser",account);
+					System.out.println(account);
+					int nowScore;
+					if(account.getScore() != null) {
+						nowScore = account.getScore();
+					}else {
+						nowScore = 0;
+					}
+					model.addAttribute("nowRanking",accountServ.getRanking(nowScore));
 					
 					return "team5/Team5ranking";	
 				}
