@@ -211,12 +211,12 @@ public Team5Account setupAccount() {
 			//typing.getPer();
 			//%表示
 			//typing.takeTimer();
-			double Per = typing.getPer() * 100;
-			String PerSt = String.format("%2.1f%%",Per);
+			String PerSt = String.format("%2.1f%%",typing.getPer() * 100);
+			String minSt = String.format("%3.3f / 分", typing.getcalcM(start, end));
 			model.addAttribute("Per",PerSt);
 			model.addAttribute("Cor",typing.getCorrect());
 			model.addAttribute("Wor",typing.getWrong());
-			model.addAttribute("Min",typing.getcalcM(start,end));
+			model.addAttribute("Min",minSt);
 			model.addAttribute("inputText",inputText);
 			//throw new Exception();
 			accountServ.addScore(team5Account,(int)typing.getcalcM(start,end));
