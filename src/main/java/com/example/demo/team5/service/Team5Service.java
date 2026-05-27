@@ -18,7 +18,6 @@ public class Team5Service {
 	
 	public  List<Team5_typing> getTypingBody() {
 		Integer id = (random.nextInt(typing.findAll().size())+1);
-		System.out.println(id);
 		return typing.findByTypingId(id);
 	}
 	
