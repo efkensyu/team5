@@ -17,18 +17,17 @@ body {
     background-color: #111;
     border: 1px solid #1b4965;
     border-radius: 15px;
-    padding: 20px 30px;       /* ← 上下余白を削減 */
-    
+    padding: 20px 30px;      
     margin-bottom: 10px;
 }
 
-/* テーブル全体 */
+/* テーブル */
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-/* Ranking タイトル */
+/* Ranking */
 caption {
     font-family: Arial;
     color: #4cc9f0;
@@ -40,7 +39,7 @@ caption {
     padding-bottom: 8px;
 }
 
-/*セル見出し*/
+/*見出し*/
 th {
     color: #4cc9f0;
     font-size: 1rem;
@@ -54,25 +53,25 @@ th {
 
 /* 行 */
 tr {
-    border-bottom: 1px solid #1b4965;  /* ← 細く */
+    border-bottom: 1px solid #1b4965;  
 }
 
-/* セル共通 */
+/* 共通 */
 td {
     color: #ffffff;
     font-family: Arial;
-    font-size: 1.3rem;        /* ← 小さく調整 */
-    padding: 6px 16px 6px 0; /* ← 余白削減・左揃えのため右にだけ間隔 */
+    font-size: 1.5rem;   
+    padding: 5px 15px 5px 0; 
     text-align: right;
 }
 
-/* 順位列（1列目）だけ幅固定 */
+/* 順位列だけ幅固定 */
 td:nth-child(1) {
     width: 40px;
-    color: #4cc9f0;           /* ← 順位を青色にして目立たせる */
+    color: #4cc9f0; 
 }
 
-/* スコア列（3列目）*/
+/* スコア列*/
 td:nth-child(3) {
     width: 100px;
 }
@@ -93,5 +92,5 @@ input[type="submit"] {
     cursor: pointer;
     background-color: #111e2e;
     border: 2px solid #415a77;
-    padding: 10px 30px;       /* ← 余白削減 */
-}
+    padding: 10px 30px;
+} 
