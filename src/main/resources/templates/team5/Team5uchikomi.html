@@ -34,9 +34,9 @@
 	    document.addEventListener('keydown', function(event) {
 	        // 押されたキーが Enter キーの場合
 	        if (event.key === 'Enter') {
-	            // 本来のEnterキーの挙動（テキストエリアでの改行など）をストップ
+	            // エンターをおしても改行しないように
 	            event.preventDefault();
-	            // 完了ボタンのフォームを送信
+	            // 完了ボタンフォーム送信
 	            document.getElementById('complete-form').submit();
 	        }
 	    });

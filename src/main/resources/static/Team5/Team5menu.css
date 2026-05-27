@@ -1,7 +1,7 @@
 /* 全体 */
 body {
     
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: Arial;
     background-color: #0d1b2a; 
     color: #e0e1dd;
     display: flex;
@@ -45,11 +45,11 @@ input[type="submit"] {
     border: 2px solid #62b6cb;
     border-radius: 4px;
     padding: 15px 50px;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: bold;
     letter-spacing: 1px;
     cursor: pointer;
-    box-shadow: 0 0 15px rgba(76, 201, 240, 0.3);
+    
     width: 250px;          
     text-align: center;
 }

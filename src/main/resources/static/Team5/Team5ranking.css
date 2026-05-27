@@ -14,11 +14,11 @@ body {
 .game-container {
     width: 50%;
     max-width: 800px;
-    background-color: rgba(27, 73, 101, 0.2);
+    background-color: #111;
     border: 1px solid #1b4965;
     border-radius: 15px;
     padding: 20px 30px;       /* ← 上下余白を削減 */
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    
     margin-bottom: 10px;
 }
 
@@ -32,7 +32,7 @@ table {
 caption {
     font-family: Arial;
     color: #4cc9f0;
-    font-size: 2.2rem;       
+    font-size: 2rem;       
     margin-bottom: 10px;    
     letter-spacing: 2px;
     border-bottom: 2px solid #1b4965;
@@ -88,10 +88,9 @@ form {
 input[type="submit"] {
     color: #ffffff;
     border-radius: 8px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(27, 73, 101, 0.4);
     background-color: #111e2e;
     border: 2px solid #415a77;
     padding: 10px 30px;       /* ← 余白削減 */

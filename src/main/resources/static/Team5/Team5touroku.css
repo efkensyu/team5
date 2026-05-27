@@ -23,7 +23,7 @@ h1 {
 
 /* ユーザーネーム 、パスワード */
 h4 {
-    font-size: 1.1rem;
+    font-size: 1rem;
     color: #62b6cb;
     margin: 10px 0 5px 0;
     align-self: flex-start; 
@@ -36,7 +36,6 @@ form {
     align-items: center;
     width: 100%;
     max-width: 350px;
-    background-color: rgba(27, 73, 101, 0.2); 
     padding: 30px;
     border-radius: 8px;
     border: 1px solid #1b4965;
@@ -60,8 +59,7 @@ input[type="text"], input[type="password"] {
 input[type="text"]:focus, input[type="password"]:focus {
     outline: none;
     border-color: #4cc9f0;
-    box-shadow: 0 0 8px rgba(76, 201, 240, 0.5);
-}
+ }
 
 /* 登録ボタン  メニューへ */
 input[type="submit"] {
@@ -70,11 +68,10 @@ input[type="submit"] {
     border: 2px solid #62b6cb;
     border-radius: 6px;
     padding: 12px 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: bold;
     letter-spacing: 1px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(76, 201, 240, 0.2);
     width: 100%; 
     text-align: center;
     margin-top: 10px;
