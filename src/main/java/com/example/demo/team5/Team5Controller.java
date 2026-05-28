@@ -154,13 +154,7 @@ public Team5Account setupAccount() {
 					//rankingへの値を渡す。
 					Team5Account tmp = accountServ.getAccount(account.getUserId());
 					model.addAttribute("nowUser",tmp);
-					int nowScore;
-					if(tmp.getScore() != null) {
-						nowScore = tmp.getScore();
-					}else {
-						nowScore = 0;
-					}
-					model.addAttribute("nowRanking",accountServ.getRanking(nowScore));
+					model.addAttribute("nowRanking",accountServ.getRanking(tmp));
 					
 					return "team5/Team5ranking";	
 				}
@@ -169,6 +163,7 @@ public Team5Account setupAccount() {
 				public String sendmenu(Model model) throws Throwable{
 					return "team5/Team5menu";	
 				}
+				
 		//メニュー画面からログアウトを行う
 		//遷移は
 		@PostMapping(value ="/Team5/logout",params="logout" )		
@@ -245,11 +240,15 @@ public Team5Account setupAccount() {
 		
 		
 		//タイピング結果画面からメニュー画面へ
-		@PostMapping(value ="/Team5/result1",params="next")		
+		@PostMapping(value ="/Team5/result１",params="next")		
 		public String send4() throws Throwable{
-	
 			return "team5/Team5menu";		
 			}
+		@PostMapping(value ="/Team5/typi",params="retry")		
+		public String retryTyping() throws Throwable{
+			return "team5/Team5typing";		
+			}
+	
 
 
 }

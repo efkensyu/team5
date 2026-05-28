@@ -14,7 +14,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Team5AccountService {
 	    private final Team5AccountRepository repository;
-
+	    String bar = "‐";
+	    
 	    public void create(Team5Account account) {
 	    	 repository.save(account);
 	    }
@@ -66,18 +67,40 @@ public class Team5AccountService {
 	    	}
 	    }
 	    
-	    public int getRanking(int score) {
+
+	    
+	    public String getRanking(int score) {
 	    	List<Team5Account> rankings = repository.findByOrderByScoreDesc();
 	    	
 	    	for(int i = 0 ; i < rankings.size();i++) {
 	    		if(rankings.get(i).getScore() == null) {
-	    			return (i+1);
+	    			return bar;
 	    		}
 	    		if(rankings.get(i).getScore() <= score) {
-	    			return (i+1);
+	    			Integer tmp = i+1;
+	    			return tmp.toString();
 	    		}
 	    	}
-	    	return -1;
+	    	return bar;
+	    }
+	    
+	    public String getRanking(Team5Account account) {
+	    	if(account.getScore() == null) {
+	    		return bar;
+	    	}
+	    	int score = account.getScore();
+	    	List<Team5Account> rankings = repository.findByOrderByScoreDesc();
+	    	
+	    	for(int i = 0 ; i < rankings.size();i++) {
+	    		if(rankings.get(i).getScore() == null) {
+	    			return bar;
+	    		}
+	    		if(rankings.get(i).getScore() <= score) {
+	    			Integer tmp = i+1;
+	    			return tmp.toString();
+	    		}
+	    	}
+	    	return bar;
 	    }
 	    
 	    public Team5Account getAccount(String id) {

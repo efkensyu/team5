@@ -6,7 +6,7 @@
 <title>Typing555!</title>
 </head>
 <body>
-	<form method="post" th:action="@{/Team5/result1}">
+	<form method="post" th:action="@{/Team5/typi}">
 	<h1>～結果発表～</h1>
 	
 	<h2 th:text="正解数： + ${Cor}"></h2>
@@ -15,7 +15,10 @@
 	<h2 th:text="スコア： + ${Min}"></h2>
 	
 	<p th:text="${inputText}"></p>
-	<input type="submit" name ="next" value="メニュー画面へもどる" />
+	<input type="submit" name ="retry" value="もう一度タイピングする" />
 </form>
+	<form method="post" th:action="@{/Team5/result１}">
+		<input type="submit" name ="next" value="メニュー画面へもどる" />	
+	</form>
 </body>
 </html>

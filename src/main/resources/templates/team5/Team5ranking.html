@@ -33,7 +33,7 @@
 					<tr th:object="${nowUser}">
 						<td th:text="${nowRanking}"></td>
 						<td th:text="*{userId}"></td>
-						<td th:text="*{score}"></td>
+						<td th:text="*{score} != null ? *{score} : '-'"></td>
 					</tr>
 				</table>
 				</div>
