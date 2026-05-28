@@ -232,7 +232,7 @@ public Team5Account setupAccount() {
 			model.addAttribute("Min",minSt);
 			model.addAttribute("inputText",inputText);
 			//throw new Exception();
-			accountServ.addScore(team5Account,(int)typing.getcalcM(start,end));
+			accountServ.addScore(accountServ.getAccount(team5Account.getUserId()),(int)typing.getcalcM(start,end));
 			return "team5/Team5result";
 		}
 //タイピング実施画面 to 結果画面
