@@ -152,11 +152,11 @@ public Team5Account setupAccount() {
 					List<Team5Account> rank = accountServ.getTop5Accounts();
 					model.addAttribute("ranking",rank);
 					//rankingへの値を渡す。
-					model.addAttribute("nowUser",account);
-					System.out.println(account);
+					Team5Account tmp = accountServ.getAccount(account.getUserId());
+					model.addAttribute("nowUser",tmp);
 					int nowScore;
-					if(account.getScore() != null) {
-						nowScore = account.getScore();
+					if(tmp.getScore() != null) {
+						nowScore = tmp.getScore();
 					}else {
 						nowScore = 0;
 					}

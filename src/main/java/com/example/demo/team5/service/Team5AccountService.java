@@ -80,5 +80,9 @@ public class Team5AccountService {
 	    	return -1;
 	    }
 	    
+	    public Team5Account getAccount(String id) {
+	    	return repository.findByUserId(id);
+	    			}
+	    
 	    
 	}
