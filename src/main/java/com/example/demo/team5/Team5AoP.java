@@ -3,6 +3,7 @@ package com.example.demo.team5;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +12,11 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 @Component
 public class Team5AoP {
-	@Around("@annotation(org.springframework.web.bind.annotation.PostMapping)")
+	@Pointcut("within(com.example.demo.team5.Team5Controller)")
+	private void targetController() {}
+	
+	
+	@Around("@annotation(org.springframework.web.bind.annotation.PostMapping)　&& targetController()")
 	public Object AfterLog(ProceedingJoinPoint jp) throws Throwable{
 		//System.out.println("[After]PotMappingメソッド開始:" + jp.getSignature());
 		//System.out.println("送ったデータ:" + Arrays.toString(jp.getArgs()));
@@ -35,7 +40,7 @@ public class Team5AoP {
 //		log.error("Postメソッドのerrorログ");
 //		return "team5/Team5error";	
 	//}
-	@Around("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+	@Around("@annotation(org.springframework.web.bind.annotation.GetMapping)　&& targetController()")
 	public Object AroundLog(ProceedingJoinPoint jp) throws Throwable{
 		//System.out.println("[After]PotMappingメソッド開始:" + jp.getSignature());
 		//System.out.println("送ったデータ:" + Arrays.toString(jp.getArgs()));

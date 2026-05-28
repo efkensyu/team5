@@ -9,18 +9,16 @@
 	<h1>新規会員登録</h1>
 	<form method="post" th:action="@{/Team5/tourokuExecute}" th:object="${team5Account}">
 		<!-- 変更後 -->
-			<p th:style="${isDuplicated == true} ? 'color: red;' : 'display: none;'">
-				このIDは既に登録されています。
-			</p>
+
 			
-			<p th:style="${isMatchedPassword == true} ? 'color: red;' : 'display: none;'">
-				パスワードが一致しません
-			</p>
+		
 			
 	        <h4>ユーザーネーム</h4>
 	        <input type="text" th:field="*{userId}" oninput="clearDuplicateError()"/>
 			<p>(~30文字)</p>
-			
+			<p th:style="${isDuplicated == true} ? 'color: red;' : 'display: none;'">
+				このIDは既に登録されています。
+			</p>
 	        <p th:if="${#fields.hasErrors('userId')}" th:errors="*{userId}" style="color: red;"></p>
 	        
 	        <br>
@@ -29,6 +27,9 @@
 			<p>(10~30文字)</p>
 			
 	        <p th:if="${#fields.hasErrors('passWord')}" th:errors="*{passWord}" style="color: red;"></p>
+			<p th:style="${isMatchedPassword == true} ? 'color: red;' : 'display: none;'">
+						パスワードが一致しません
+					</p>
 			<br>
 			<h4>パスワード（確認）</h4>
 			<input type="password" id="passwordConfirm" name="passwordConfirm"/>
